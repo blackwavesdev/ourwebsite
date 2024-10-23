@@ -1,3 +1,8 @@
+import Nav from "./Components/Nav";
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
 }
