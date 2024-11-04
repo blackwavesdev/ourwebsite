@@ -15,15 +15,11 @@ const Welcome = () => {
         </p>
       </div>
       <div>
-        <video
-          className="bg-white"
-          autoPlay
-          muted
-          playsInline
-          loop
-          controls={false}
-        >
-          <source src="../../../public/pattern.mp4" type="video/mp4" />
+        <video autoPlay muted playsInline loop controls={false}>
+          <source
+            src={`${process.env.PUBLIC_URL || ""}/pattern.mp4`}
+            type="video/mp4"
+          />
         </video>
       </div>
     </div>
