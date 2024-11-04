@@ -23,7 +23,7 @@ const Welcome = () => {
           loop
           controls={false}
         >
-          <source src="/pattern.mp4" type="video/mp4" />
+          <source src="../../../public/pattern.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
