@@ -1,4 +1,10 @@
 import MeetUs from "./components/MeetUs";
+import Welcome from "./components/Welcome/Welcome";
 export default function Home() {
-  return <div><MeetUs/></div>;
+  return (
+    <div>
+      <Welcome />
+      <MeetUs />
+    </div>
+  );
 }
