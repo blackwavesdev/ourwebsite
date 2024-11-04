@@ -2,7 +2,7 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div className="bg-black h-screen flex flex-col justify-around text-white">
+    <div className="bg-black pt-10 gap-5 md:gap-44 flex flex-col justify-around text-white">
       <div className="center flex-col">
         <h2 className="font-extrabold">Welcome To</h2>
         <div className="flex items-end">
