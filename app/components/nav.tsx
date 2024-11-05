@@ -52,7 +52,7 @@ const Nav = () => {
                 `}
             >
                 <div className={`logo transition-all duration-500 ease-in-out flex justify-start items-center cursor-pointer text-center ml-6 md:ml-0 p-0 `}>
-                    <Image className={`w-20 lg:w-32 md:w-28 transition-all duration-500 ease-in-out ${lastScrollY ? 'lg:w-24 ' : 'lg:w-32'}`} src={myLogo} alt="company's logo" />
+                    <Image className={`w-24  md:w-28 transition-all duration-500 ease-in-out ${lastScrollY ? 'lg:w-24' : 'lg:w-34'}`} src={myLogo} alt="company's logo" />
                 </div>
 
                 {/* Navigations for larger screens */}
