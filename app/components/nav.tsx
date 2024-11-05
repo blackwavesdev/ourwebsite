@@ -134,11 +134,11 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <nav
-        className={`lg:hidden fixed left-0 w-full h-full transition-all  duration-200 ease-in-out bg-black text-center z-50 
+        className={`lg:hidden fixed pb-32 left-0 w-full h-full transition-all  duration-200 ease-in-out bg-black text-center z-50 
                     ${
                       visible ? "opacity-100" : "opacity-0 pointer-events-none"
                     } 
-                    ${!isHeaderVisible ? "h-screen top-0" : "top-24 h-auto"}`}
+                    ${!isHeaderVisible ? "h-screen top-0" : "top-24 "}`}
       >
         <ul
           className={`flex flex-col justify-center items-center transition-transform duration-500 ease-in-out 
