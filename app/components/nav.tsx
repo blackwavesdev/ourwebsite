@@ -45,14 +45,14 @@ const Nav = () => {
     },);
 
     return (
-        <header className={` text-white relative tracking-wide z-50 box-border block w-full font-sans`}>
+        <header className={` text-white relative tracking-wide z-50 box-border block w-full  font-sans`}>
             {/* Main Header */}
             <div
-                className={`headContainer pt-2 md:pt-0 flex justify-between sm:justify-around  box-border fixed bg-black w-full items-center mx-auto lg:w-12/12  transition-all duration-500 ease-in-out ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}
+                className={`headContainer pt-2 md:pt-0 z-50 flex justify-between sm:justify-around  box-border fixed bg-black w-full items-center  lg:w-12/12  transition-all duration-500 ease-in-out ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}
                 `}
             >
                 <div className={`logo transition-all duration-500 ease-in-out flex justify-start items-center cursor-pointer text-center ml-6 md:ml-0 p-0 `}>
-                    <Image className={`w-24  md:w-28 transition-all duration-500 ease-in-out ${lastScrollY ? 'lg:w-24' : 'lg:w-34'}`} src={myLogo} alt="company's logo" />
+                    <Image className={`w-24  md:w-28 transition-all duration-500 ease-in-out ${lastScrollY ? 'lg:w-24' : 'lg:w-32'}`} src={myLogo} alt="company's logo" />
                 </div>
 
                 {/* Navigations for larger screens */}
