@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Welcome from "./Welcome/Welcome";
 import MeetUs from "./MeetUs";
+import Hero from "./Hero";
 
 const ScrollBySection: React.FC = () => {
   const sectionRefs = useRef<HTMLDivElement[]>([]);
@@ -73,14 +74,19 @@ const ScrollBySection: React.FC = () => {
 
   return (
     <div className="h-[100dvh] w-full overflow-hidden">
-      <Welcome
+      <Hero
         ref={(el) => {
           if (el) sectionRefs.current[0] = el;
         }}
       />
-      <MeetUs
+      <Welcome
         ref={(el) => {
           if (el) sectionRefs.current[1] = el;
+        }}
+      />
+      <MeetUs
+        ref={(el) => {
+          if (el) sectionRefs.current[2] = el;
         }}
       />
       {/* Add more sections as needed */}

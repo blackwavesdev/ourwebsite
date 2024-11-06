@@ -1,9 +1,12 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Image from "next/image";
-import logo from "../Public/logo-bw.png";
-const Hero = () => {
+import logo from "../../Public/logo-bw.png";
+const Hero = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="relative back bg-cover bg-center bg-fixed h-screen flex items-center justify-center ">
+    <section
+      ref={ref}
+      className="min-h-[100dvh] snap-start relative back bg-cover bg-center bg-fixed h-screen flex items-center justify-center "
+    >
       <div className="flex flex-col md:flex-row justify-center items-center ">
         <Image
           src={logo}
@@ -17,8 +20,9 @@ const Hero = () => {
           Devolpment{" "}
         </p>
       </div>
-    </div>
+    </section>
   );
-};
+});
+Hero.displayName = "Hero";
 
 export default Hero;

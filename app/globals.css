@@ -96,3 +96,6 @@ body {
   justify-content: center;
   align-items: center;
 }
+.back {
+  background-image: url("../Public/waves.jpg");
+}
