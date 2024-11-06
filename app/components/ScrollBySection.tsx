@@ -8,6 +8,7 @@ const ScrollBySection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const isScrolling = useRef<boolean>(false);
   const touchStart = useRef<number>(0); // For touch-based scroll tracking
+  const SWIPE_THRESHOLD = 30; // Minimum swipe distance in pixels to trigger scroll
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,8 +24,8 @@ const ScrollBySection: React.FC = () => {
       },
       {
         root: null,
-        rootMargin: "0px 0px -50% 0px", // Trigger when 50% of section is in view
-        threshold: 0.5, // At least 50% of section must be in view
+        rootMargin: "0px 0px -50% 0px",
+        threshold: 0.5,
       }
     );
 
@@ -36,7 +37,7 @@ const ScrollBySection: React.FC = () => {
   }, []);
 
   const handleWheel = (event: WheelEvent) => {
-    if (isScrolling.current) return; // Prevent multiple scrolls in quick succession
+    if (isScrolling.current) return;
 
     const isScrollingDown = event.deltaY > 0;
 
@@ -52,19 +53,22 @@ const ScrollBySection: React.FC = () => {
       });
     }
 
-    // Allow scrolling again after the transition
-    setTimeout(() => (isScrolling.current = false), 500);
+    setTimeout(() => (isScrolling.current = false), 600);
   };
 
   const handleTouchStart = (event: TouchEvent) => {
-    touchStart.current = event.touches[0].clientY; // Capture the starting touch position
+    touchStart.current = event.touches[0].clientY;
   };
 
   const handleTouchMove = (event: TouchEvent) => {
-    if (isScrolling.current) return; // Prevent multiple scrolls in quick succession
+    if (isScrolling.current) return;
 
     const touchEnd = event.touches[0].clientY;
-    const isScrollingDown = touchEnd - touchStart.current < 0; // Check if scrolling down
+    const distance = touchStart.current - touchEnd;
+
+    if (Math.abs(distance) < SWIPE_THRESHOLD) return;
+
+    const isScrollingDown = distance > 0;
 
     if (isScrollingDown && activeIndex < sectionRefs.current.length - 1) {
       isScrolling.current = true;
@@ -78,17 +82,12 @@ const ScrollBySection: React.FC = () => {
       });
     }
 
-    touchStart.current = touchEnd; // Update the touch start position
-
-    // Allow scrolling again after the transition
-    setTimeout(() => (isScrolling.current = false), 500);
+    setTimeout(() => (isScrolling.current = false), 600);
   };
 
   useEffect(() => {
-    // Attach wheel event for desktop
     window.addEventListener("wheel", handleWheel);
 
-    // Attach touch events for mobile, using native TouchEvent type
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
@@ -112,8 +111,6 @@ const ScrollBySection: React.FC = () => {
           sectionRefs.current[1] = el!;
         }}
       />
-      {/* <Section3 ref={(el) => { sectionRefs.current[2] = el!; }} />
-      <Section4 ref={(el) => { sectionRefs.current[3] = el!; }} /> */}
     </div>
   );
 };
