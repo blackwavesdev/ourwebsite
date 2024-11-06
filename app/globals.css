@@ -76,3 +76,6 @@ body {
     @apply bg-background text-foreground;
   }
 }
+.back {
+  background-image: url("../Public/waves.jpg");
+}
