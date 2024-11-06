@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-const MeetUs = () => {
+const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="bg-black h-screen text-white">
+    <section ref={ref} className="bg-black h-screen snap-start text-white">
       <div className="w-full md:w-[80%] m-auto text-center flex flex-col justify-center h-full">
         <div className="center flex-col">
           <span className="font-extrabold text-main text-5xl">Meet</span>
@@ -27,8 +27,9 @@ const MeetUs = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+});
+MeetUs.displayName = "MeetUs";
 
 export default MeetUs;
