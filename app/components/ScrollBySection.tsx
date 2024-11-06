@@ -8,7 +8,7 @@ const ScrollBySection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const isScrolling = useRef<boolean>(false);
   const touchStart = useRef<number>(0); // For touch-based scroll tracking
-  const SWIPE_THRESHOLD = 30; // Minimum swipe distance in pixels to trigger scroll
+  const SWIPE_THRESHOLD = 50; // Minimum swipe distance in pixels for iOS
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,6 +67,8 @@ const ScrollBySection: React.FC = () => {
     const distance = touchStart.current - touchEnd;
 
     if (Math.abs(distance) < SWIPE_THRESHOLD) return;
+
+    event.preventDefault(); // Prevent default scrolling on iOS
 
     const isScrollingDown = distance > 0;
 
