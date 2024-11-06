@@ -5,7 +5,7 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section
       ref={ref}
-      className="h-screen snap-start bg-black pt-10 gap-5 md:gap-12 flex flex-col justify-around text-white"
+      className="min-h-screen snap-start bg-black pt-10 gap-5 md:gap-12 flex flex-col justify-around text-white"
     >
       <div className="center flex-col mt-28">
         <h2 className="font-extrabold">Welcome To</h2>

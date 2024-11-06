@@ -4,7 +4,7 @@ import ScrollBySection from "./components/ScrollBySection";
 // import Welcome from "./components/Welcome/Welcome";
 export default function Home() {
   return (
-    <div className="min-h-[100dvh]  scroll-smooth snap-y snap-mandatory">
+    <div className="min-h-[100dvh] overflow-y-scroll  scroll-smooth snap-y snap-mandatory">
       <Nav />
       {/* <Welcome />
       <MeetUs /> */}
