@@ -9,9 +9,14 @@ const ScrollBySection: React.FC = () => {
   const isScrolling = useRef<boolean>(false);
   const touchStart = useRef<number>(0);
   const SWIPE_THRESHOLD = 40;
+  const [isSafari, setIsSafari] = useState(false);
 
-  // Detect if the browser is Safari
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  useEffect(() => {
+    // Check if the environment is client-side and detect Safari browser
+    if (typeof window !== "undefined" && typeof navigator !== "undefined") {
+      setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+    }
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,7 +46,7 @@ const ScrollBySection: React.FC = () => {
 
   const scrollToSection = (index: number) => {
     if (isSafari) {
-      // Use a manual scroll for Safari compatibility
+      // Use manual scroll for Safari
       window.scrollTo({
         top: sectionRefs.current[index].offsetTop,
         behavior: "smooth",
