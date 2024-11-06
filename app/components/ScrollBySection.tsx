@@ -12,7 +12,6 @@ const ScrollBySection: React.FC = () => {
   const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
-    // Check if the environment is client-side and detect Safari browser
     if (typeof window !== "undefined" && typeof navigator !== "undefined") {
       setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
     }
@@ -45,17 +44,16 @@ const ScrollBySection: React.FC = () => {
   }, []);
 
   const scrollToSection = (index: number) => {
-    if (isSafari) {
-      // Use manual scroll for Safari
-      window.scrollTo({
-        top: sectionRefs.current[index].offsetTop,
-        behavior: "smooth",
-      });
-    } else {
-      // For other browsers, use scrollIntoView
-      sectionRefs.current[index].scrollIntoView({
-        behavior: "smooth",
-      });
+    const section = sectionRefs.current[index];
+    if (section) {
+      if (isSafari) {
+        window.scrollTo({
+          top: section.offsetTop,
+          behavior: "smooth",
+        });
+      } else {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -81,15 +79,13 @@ const ScrollBySection: React.FC = () => {
     touchStart.current = event.touches[0].clientY;
   };
 
-  const handleTouchMove = (event: TouchEvent) => {
+  const handleTouchEnd = (event: TouchEvent) => {
     if (isScrolling.current) return;
 
-    const touchEnd = event.touches[0].clientY;
+    const touchEnd = event.changedTouches[0].clientY;
     const distance = touchStart.current - touchEnd;
 
     if (Math.abs(distance) > SWIPE_THRESHOLD) {
-      event.preventDefault();
-
       const isScrollingDown = distance > 0;
 
       if (isScrollingDown && activeIndex < sectionRefs.current.length - 1) {
@@ -102,21 +98,19 @@ const ScrollBySection: React.FC = () => {
         setActiveIndex((prevIndex) => prevIndex - 1);
       }
 
-      touchStart.current = touchEnd;
-
       setTimeout(() => (isScrolling.current = false), 600);
     }
   };
 
   useEffect(() => {
     window.addEventListener("wheel", handleWheel);
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex]);
