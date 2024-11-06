@@ -7,8 +7,8 @@ const ScrollBySection: React.FC = () => {
   const sectionRefs = useRef<HTMLDivElement[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const isScrolling = useRef<boolean>(false);
-  const touchStart = useRef<number>(0); // For touch-based scroll tracking
-  const SWIPE_THRESHOLD = 50; // Minimum swipe distance in pixels for iOS
+  const touchStart = useRef<number>(0);
+  const SWIPE_THRESHOLD = 40; // Reduced for better sensitivity
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,25 +66,29 @@ const ScrollBySection: React.FC = () => {
     const touchEnd = event.touches[0].clientY;
     const distance = touchStart.current - touchEnd;
 
-    if (Math.abs(distance) < SWIPE_THRESHOLD) return;
+    // Only prevent default if swipe distance exceeds threshold, and only on scroll triggers
+    if (Math.abs(distance) > SWIPE_THRESHOLD) {
+      event.preventDefault();
 
-    event.preventDefault(); // Prevent default scrolling on iOS
+      const isScrollingDown = distance > 0;
 
-    const isScrollingDown = distance > 0;
+      if (isScrollingDown && activeIndex < sectionRefs.current.length - 1) {
+        isScrolling.current = true;
+        sectionRefs.current[activeIndex + 1].scrollIntoView({
+          behavior: "smooth",
+        });
+      } else if (!isScrollingDown && activeIndex > 0) {
+        isScrolling.current = true;
+        sectionRefs.current[activeIndex - 1].scrollIntoView({
+          behavior: "smooth",
+        });
+      }
 
-    if (isScrollingDown && activeIndex < sectionRefs.current.length - 1) {
-      isScrolling.current = true;
-      sectionRefs.current[activeIndex + 1].scrollIntoView({
-        behavior: "smooth",
-      });
-    } else if (!isScrollingDown && activeIndex > 0) {
-      isScrolling.current = true;
-      sectionRefs.current[activeIndex - 1].scrollIntoView({
-        behavior: "smooth",
-      });
+      // Update `touchStart` to allow consecutive scrolling in the same direction
+      touchStart.current = touchEnd;
+
+      setTimeout(() => (isScrolling.current = false), 600);
     }
-
-    setTimeout(() => (isScrolling.current = false), 600);
   };
 
   useEffect(() => {
