@@ -10,10 +10,41 @@ const ScrollBySection: React.FC = () => {
   const isScrolling = useRef<boolean>(false);
   const touchStart = useRef<number>(0);
   const SWIPE_THRESHOLD = 40;
+  const SCROLL_DURATION = 800; // Duration of the scroll animation in ms
+
+  const smoothScrollTo = (targetY: number) => {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    let startTime: number | null = null;
+
+    const animateScroll = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / SCROLL_DURATION, 1);
+
+      // Ease-in-out effect
+      const easeInOut =
+        progress < 0.5
+          ? 2 * progress * progress
+          : -1 + (4 - 2 * progress) * progress;
+
+      window.scrollTo(0, startY + distance * easeInOut);
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        isScrolling.current = false; // Reset scrolling lock
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
 
   const scrollToSection = (index: number) => {
-    if (index >= 0 && index < sectionRefs.current.length) {
-      sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
+    const targetSection = sectionRefs.current[index];
+    if (targetSection) {
+      isScrolling.current = true;
+      smoothScrollTo(targetSection.offsetTop);
       setActiveIndex(index);
     }
   };
@@ -23,14 +54,10 @@ const ScrollBySection: React.FC = () => {
 
     const isScrollingDown = event.deltaY > 0;
     if (isScrollingDown && activeIndex < sectionRefs.current.length - 1) {
-      isScrolling.current = true;
       scrollToSection(activeIndex + 1);
     } else if (!isScrollingDown && activeIndex > 0) {
-      isScrolling.current = true;
       scrollToSection(activeIndex - 1);
     }
-
-    setTimeout(() => (isScrolling.current = false), 600);
   };
 
   const handleTouchStart = (event: TouchEvent) => {
@@ -48,14 +75,12 @@ const ScrollBySection: React.FC = () => {
       const isScrollingDown = distance > 0;
 
       if (isScrollingDown && activeIndex < sectionRefs.current.length - 1) {
-        isScrolling.current = true;
         scrollToSection(activeIndex + 1);
       } else if (!isScrollingDown && activeIndex > 0) {
-        isScrolling.current = true;
         scrollToSection(activeIndex - 1);
       }
 
-      setTimeout(() => (isScrolling.current = false), 600);
+      touchStart.current = touchEnd;
     }
   };
 
@@ -73,7 +98,7 @@ const ScrollBySection: React.FC = () => {
   }, [activeIndex]);
 
   return (
-    <div className="h-[100dvh] w-full overflow-hidden">
+    <div className="h-screen w-full overflow-hidden">
       <Hero
         ref={(el) => {
           if (el) sectionRefs.current[0] = el;
@@ -89,7 +114,6 @@ const ScrollBySection: React.FC = () => {
           if (el) sectionRefs.current[2] = el;
         }}
       />
-      {/* Add more sections as needed */}
     </div>
   );
 };
