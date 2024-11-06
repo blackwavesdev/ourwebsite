@@ -8,7 +8,10 @@ const ScrollBySection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const isScrolling = useRef<boolean>(false);
   const touchStart = useRef<number>(0);
-  const SWIPE_THRESHOLD = 40; // Reduced for better sensitivity
+  const SWIPE_THRESHOLD = 40;
+
+  // Detect if the browser is Safari
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,6 +39,21 @@ const ScrollBySection: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (index: number) => {
+    if (isSafari) {
+      // Use a manual scroll for Safari compatibility
+      window.scrollTo({
+        top: sectionRefs.current[index].offsetTop,
+        behavior: "smooth",
+      });
+    } else {
+      // For other browsers, use scrollIntoView
+      sectionRefs.current[index].scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
   const handleWheel = (event: WheelEvent) => {
     if (isScrolling.current) return;
 
@@ -43,14 +61,12 @@ const ScrollBySection: React.FC = () => {
 
     if (isScrollingDown && activeIndex < sectionRefs.current.length - 1) {
       isScrolling.current = true;
-      sectionRefs.current[activeIndex + 1].scrollIntoView({
-        behavior: "smooth",
-      });
+      scrollToSection(activeIndex + 1);
+      setActiveIndex((prevIndex) => prevIndex + 1);
     } else if (!isScrollingDown && activeIndex > 0) {
       isScrolling.current = true;
-      sectionRefs.current[activeIndex - 1].scrollIntoView({
-        behavior: "smooth",
-      });
+      scrollToSection(activeIndex - 1);
+      setActiveIndex((prevIndex) => prevIndex - 1);
     }
 
     setTimeout(() => (isScrolling.current = false), 600);
@@ -66,7 +82,6 @@ const ScrollBySection: React.FC = () => {
     const touchEnd = event.touches[0].clientY;
     const distance = touchStart.current - touchEnd;
 
-    // Only prevent default if swipe distance exceeds threshold, and only on scroll triggers
     if (Math.abs(distance) > SWIPE_THRESHOLD) {
       event.preventDefault();
 
@@ -74,17 +89,14 @@ const ScrollBySection: React.FC = () => {
 
       if (isScrollingDown && activeIndex < sectionRefs.current.length - 1) {
         isScrolling.current = true;
-        sectionRefs.current[activeIndex + 1].scrollIntoView({
-          behavior: "smooth",
-        });
+        scrollToSection(activeIndex + 1);
+        setActiveIndex((prevIndex) => prevIndex + 1);
       } else if (!isScrollingDown && activeIndex > 0) {
         isScrolling.current = true;
-        sectionRefs.current[activeIndex - 1].scrollIntoView({
-          behavior: "smooth",
-        });
+        scrollToSection(activeIndex - 1);
+        setActiveIndex((prevIndex) => prevIndex - 1);
       }
 
-      // Update `touchStart` to allow consecutive scrolling in the same direction
       touchStart.current = touchEnd;
 
       setTimeout(() => (isScrolling.current = false), 600);
@@ -93,7 +105,6 @@ const ScrollBySection: React.FC = () => {
 
   useEffect(() => {
     window.addEventListener("wheel", handleWheel);
-
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
