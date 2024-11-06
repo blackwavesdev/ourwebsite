@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 
 const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <section ref={ref} className="bg-black h-screen snap-start text-white">
+    <section ref={ref} className="bg-black h-[100dvh] snap-start text-white">
       <div className="w-full md:w-[80%] m-auto text-center flex flex-col justify-center h-full">
         <div className="center flex-col">
           <span className="font-extrabold text-main text-5xl">Meet</span>

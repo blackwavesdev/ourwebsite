@@ -138,7 +138,7 @@ const Nav = () => {
                     ${
                       visible ? "opacity-100" : "opacity-0 pointer-events-none"
                     } 
-                    ${!isHeaderVisible ? "h-screen top-0" : "top-24 "}`}
+                    ${!isHeaderVisible ? "h-[100dvh] top-0" : "top-24 "}`}
       >
         <ul
           className={`flex flex-col justify-center items-center transition-transform duration-500 ease-in-out 

@@ -72,7 +72,7 @@ const ScrollBySection: React.FC = () => {
   }, [activeIndex]);
 
   return (
-    <div className="h-screen w-full overflow-hidden">
+    <div className="h-[100dvh] w-full overflow-hidden">
       <Welcome
         ref={(el) => {
           if (el) sectionRefs.current[0] = el;
