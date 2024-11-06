@@ -10,7 +10,6 @@ const ScrollBySection: React.FC = () => {
   const isScrolling = useRef<boolean>(false);
 
   useEffect(() => {
-    // IntersectionObserver to track each section's visibility
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -24,12 +23,11 @@ const ScrollBySection: React.FC = () => {
       },
       {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.5, // Trigger when at least half the section is in view
+        rootMargin: "0px 0px -50% 0px", // Trigger when 50% of section is in view
+        threshold: 0.5, // At least 50% of section must be in view
       }
     );
 
-    // Observe each section
     sectionRefs.current.forEach((section) => {
       if (section) observer.observe(section);
     });
