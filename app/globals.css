@@ -6,7 +6,7 @@ body {
   scroll-behavior: smooth !important;
 }
 * {
-  overflow-y: hidden !important;
+  overflow-x: hidden !important;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;

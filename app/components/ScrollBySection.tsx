@@ -60,9 +60,7 @@ const ScrollBySection: React.FC = () => {
 
   return (
     <div
-      className={`h-[100dvh] w-full ${
-        isDesktop ? "overflow-hidden" : "overflow-auto"
-      }`} // Overflow hidden only for desktop
+      className={`h-screen w-full ${isDesktop ? "overflow-y-hidden" : ""}`} // Overflow hidden only for desktop
     >
       <Hero
         ref={(el) => {
