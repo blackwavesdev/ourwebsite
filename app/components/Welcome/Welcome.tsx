@@ -8,9 +8,9 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
       className="min-h-[100dvh] snap-start bg-black pt-10 gap-5 md:gap-12 flex flex-col justify-around text-white"
     >
       <div className="center flex-col mt-28">
-        <h2 className="font-extrabold">Welcome To</h2>
+        <h2 className="font-extrabold font-Poppins">Welcome To</h2>
         <div className="flex items-end">
-          <h1 className="text-5xl font-extrabold">Black Waves</h1>
+          <h1 className="text-5xl font-extrabold font-Poppins">Black Waves</h1>
           <span className="bg-main p-1 rounded-full mb-2"></span>
         </div>
         <p className="text-pretty md:w-[45%] px-2 md:px-0 text-center">

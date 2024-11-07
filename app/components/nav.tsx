@@ -46,7 +46,7 @@ const Nav = () => {
 
   return (
     <header
-      className={` text-white relative tracking-wide z-50 box-border block w-full  font-sans`}
+      className={` text-white relative tracking-wide z-50 box-border block w-full`}
     >
       {/* Main Header */}
       <div
