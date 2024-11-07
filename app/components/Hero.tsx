@@ -41,17 +41,17 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
           src={logo}
           alt="Hero Image"
           width={200}
-          height={500}
+          height={200}
           className={`center ${
             isInView
-              ? "motion-scale-in-[0.5] motion-translate-x-in-[-48%] motion-translate-y-in-[-12%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate motion-ease-spring-bouncy"
+              ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
               : "hidden"
           }`}
         />
         <p
           className={`text-white text-base md:text-lg text-center md:text-left lg:text-xl  text-pretty leading-relaxed p-4 md:p-6 ${
             isInView
-              ? "motion-scale-in-[0.5] motion-translate-x-in-[-48%] motion-translate-y-in-[-12%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate motion-ease-spring-bouncy"
+              ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
               : "hidden"
           }`}
         >

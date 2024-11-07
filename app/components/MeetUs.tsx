@@ -17,7 +17,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Add a 300ms delay before triggering the animation
+          // Add a 400ms delay before triggering the animation
           setTimeout(() => setIsInView(true), 400);
         } else {
           setIsInView(false);
@@ -42,7 +42,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
           <span
             className={`font-extrabold text-main text-5xl ${
               isInView
-                ? "motion-scale-in-[0.5] motion-translate-x-in-[-48%] motion-translate-y-in-[-12%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate motion-ease-spring-bouncy"
+                ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
                 : "hidden"
             }`}
           >
@@ -52,7 +52,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
             <h1
               className={`text-5xl font-extrabold ${
                 isInView
-                  ? "motion-scale-in-[0.5] motion-translate-x-in-[-48%] motion-translate-y-in-[-12%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate motion-ease-spring-bouncy"
+                  ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
                   : "hidden"
               }`}
             >
@@ -68,7 +68,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
         <h2
           className={`text-white ${
             isInView
-              ? "motion-scale-in-[0.5] motion-translate-x-in-[-48%] motion-translate-y-in-[-12%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate motion-ease-spring-bouncy"
+              ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
               : "hidden"
           }`}
         >
@@ -78,7 +78,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
           <p
             className={`text-white ${
               isInView
-                ? "motion-scale-in-[0.5] motion-translate-x-in-[-48%] motion-translate-y-in-[-12%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate motion-ease-spring-bouncy"
+                ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
                 : "hidden"
             }`}
           >
@@ -91,7 +91,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
           <p
             className={`mt-4 text-white ${
               isInView
-                ? "motion-scale-in-[0.5] motion-translate-x-in-[66%] motion-translate-y-in-[-6%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate motion-ease-spring-bouncy"
+                ? "motion-scale-in-[0.5] motion-translate-x-in-[66%] motion-translate-y-in-[-6%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
                 : "hidden"
             }`}
           >
