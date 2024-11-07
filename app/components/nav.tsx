@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Nav = () => {
   const links = [
-    { name: "About us", link: "/" },
+    { name: "About us", link: "#welcome" },
     { name: "Services", link: "/" },
     { name: "Pricing", link: "/" },
     { name: "Blog", link: "/" },
