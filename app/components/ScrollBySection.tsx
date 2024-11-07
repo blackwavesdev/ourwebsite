@@ -60,7 +60,7 @@ const ScrollBySection: React.FC = () => {
 
   return (
     <div
-      className={`h-screen w-full ${
+      className={`h-[100dvh] w-full ${
         isDesktop ? "overflow-hidden" : "overflow-auto"
       }`} // Overflow hidden only for desktop
     >
