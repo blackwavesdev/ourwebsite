@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Nav = () => {
   const links = [
-    { name: "About us", link: "/" },
+    { name: "About us", link: "#welcome" },
     { name: "Services", link: "/" },
     { name: "Pricing", link: "/" },
     { name: "Blog", link: "/" },
@@ -46,7 +46,7 @@ const Nav = () => {
 
   return (
     <header
-      className={` text-white relative tracking-wide z-50 box-border block w-full  font-sans`}
+      className={` text-white relative tracking-wide z-50 box-border block w-full`}
     >
       {/* Main Header */}
       <div
