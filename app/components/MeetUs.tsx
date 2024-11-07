@@ -35,7 +35,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
     <section
       id="meetus"
       ref={localRef}
-      className="bg-black h-[100dvh] snap-start text-white"
+      className="overflow-y-hidden bg-black h-[100dvh] snap-start text-white"
     >
       <div className="w-full md:w-[80%] m-auto text-center flex flex-col justify-center h-full">
         <div className="center flex-col">

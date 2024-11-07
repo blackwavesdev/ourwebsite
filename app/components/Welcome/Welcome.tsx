@@ -38,7 +38,7 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
     <section
       id="welcome"
       ref={localRef}
-      className="min-h-[100dvh] snap-start bg-black pt-10 gap-5 md:gap-12 flex flex-col justify-around text-white"
+      className="overflow-y-hidden min-h-[100dvh] snap-start bg-black pt-10 gap-5 md:gap-12 flex flex-col justify-around text-white"
     >
       <div className="center flex-col mt-28">
         <h2
