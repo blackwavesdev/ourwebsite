@@ -60,7 +60,7 @@ const Nav = () => {
         >
           <Image
             className={`w-24  md:w-28 transition-all duration-500 ease-in-out ${
-              lastScrollY ? "lg:w-24" : "lg:w-32"
+              lastScrollY ? "lg:w-24" : "lg:w-20"
             }`}
             src={myLogo}
             alt="company's logo"
