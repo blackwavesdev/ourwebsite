@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import * as React from "react";
@@ -10,7 +11,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 const svgItems = [
   <svg key="1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +31,7 @@ const svgItems = [
   </svg>,
 ];
 
-export default function Component() {
+const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -63,51 +64,51 @@ export default function Component() {
   const handleMouseLeave = () => setAutoScroll(true);
 
   return (
-    <section className=" bg-black flex flex-col h-[100dvh]">
-      <div className=" relative w-full  md:w-4/5  flex  flex-col text-5xl justify-center text-white mx-auto text-center gap-6">
-        <h1 className="">
-          <span className="text-blue-800 ">What</span> We Do ?
-        </h1>
-        <p className="text-2xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nostrum
-          sapiente quos nisi. Cupiditate qui voluptates quisquam, perspiciatis
-          tempora in, pariatur rerum maxime similique unde aliquam inventore
-          deleniti sequi voluptas?Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Repellat atque modi voluptatem dicta ducimus
-          laboriosam corporis unde. Odit dolores suscipit, itaque laboriosam et,
-          hic maxime aut in, quae laborum fuga!
-        </p>
-        <p className="text-2xl">Lorem ipsum dolor sit amet consectetur</p>
-      </div>
+    <section ref={ref} className=" bg-black  h-[100dvh] snap-start">
+      <div className="w-full md:w-[80%] m-auto text-center flex flex-col justify-center h-full">
+        <div className="w-full  md:w-4/5  flex  flex-col text-5xl justify-center text-white mx-auto text-center gap-4">
+          <h1 className="">
+            <span className="text-blue-800 ">What</span> We Do ?
+          </h1>
+          <p className="text-xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+            nostrum sapiente quos nisi. Cupiditate qui voluptates quisquam,
+          </p>
+          <p className="text-2xl">Lorem ipsum dolor sit amet consectetur</p>
+        </div>
 
-      <div className="mx-auto mt-14">
-        <Carousel
-          setApi={setApi}
-          className="w-full max-w-3xl"
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <CarouselContent className="-ml-2 md:-ml-4">
-            {svgItems.map((svg, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2">
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      {svg}
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        <div className="mx-auto mt-5">
+          <Carousel
+            setApi={setApi}
+            className="w-full max-w-3xl"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {svgItems.map((svg, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2">
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        {svg}
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
       </div>
     </section>
   );
-}
+});
+WhatWeDo.displayName = "WhatWeDo";
+
+export default WhatWeDo;
