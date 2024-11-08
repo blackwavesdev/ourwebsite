@@ -3,6 +3,7 @@
 
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image"
 import {
   Carousel,
   CarouselContent,
@@ -30,7 +31,23 @@ const svgItems = [
     <path d="M10 10 H 90 V 90 L 50 50 Z" fill="#8b5cf6" />
   </svg>,
 ];
-
+const companies = [{
+id: "",
+src: "",
+alt: ""
+},{
+id: "",
+src: "",
+alt: ""
+},{
+id: "",
+src: "",
+alt: ""
+},{
+id: "",
+src: "",
+alt: ""
+}] 
 const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -76,8 +93,8 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
           </p>
           <p className="text-2xl">Lorem ipsum dolor sit amet consectetur</p>
         </div>
-
-        <div className="mx-auto mt-5">
+        <div className="hidden md:flex"> {companies.map((x)=>{return (<div key={x.id}><Image src={x.src} alt={x.alt} width={50} height={50}/> </div>)})} </div>
+        <div className="mx-auto mt-5 md:hiiden">
           <Carousel
             setApi={setApi}
             className="w-full max-w-3xl"
