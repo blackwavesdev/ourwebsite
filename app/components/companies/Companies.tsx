@@ -59,9 +59,9 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section
       ref={localRef}
-      className="overflow-y-hidden bg-black h-[100dvh] flex flex-col justify-around snap-start text-white"
+      className="overflow-y-hidden bg-black h-[100dvh] flex flex-col justify-center gap-5 snap-start text-white"
     >
-      <div className="image-company h-[65px] md:h-[200px] center">
+      <div className="image-company h-[120px] md:h-[230px]">
         <h2 className="text-white text-center text-3xl md:text-5xl  mt-0 md:mt-8">
           Companies
           <span
@@ -75,7 +75,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
           </span>
         </h2>
       </div>
-      <div className="grid grid-cols-2 md:flex-row justify-center mt-0 md:mt-10 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-4 md:flex-row justify-center mt-0 md:mt-10 gap-5">
         {company.map((product, index) => (
           <div className="flex flex-col items-center" key={index}>
             <Image
