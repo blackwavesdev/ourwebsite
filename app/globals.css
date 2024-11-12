@@ -105,8 +105,10 @@ body {
 .back {
   background-image: url("../Public/waves.jpg");
 }
-.image-company{
+.image-company {
   background-image: url("../Public/back.png");
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }

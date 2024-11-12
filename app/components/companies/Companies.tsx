@@ -61,7 +61,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
       ref={localRef}
       className="overflow-y-hidden bg-black h-[100dvh] flex flex-col justify-center gap-5 snap-start text-white"
     >
-      <div className="image-company h-[120px] md:h-[230px]">
+      <div className="image-company h-[287px] center">
         <h2 className="text-white text-center text-3xl md:text-5xl  mt-0 md:mt-8">
           Companies
           <span
