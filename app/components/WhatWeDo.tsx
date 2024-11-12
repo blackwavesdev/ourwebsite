@@ -3,7 +3,12 @@
 
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image"
+import Image from "next/image";
+import sv1 from "../../Public/grid icons-14.png";
+import sv2 from "../../Public/grid icons-15.png";
+import sv3 from "../../Public/grid icons-16.png";
+import sv4 from "../../Public/grid icons-17.png";
+import sv5 from "../../Public/grid icons-18.png";
 import {
   Carousel,
   CarouselContent,
@@ -14,40 +19,50 @@ import {
 } from "@/components/ui/carousel";
 import { forwardRef, useEffect, useState } from "react";
 
+// const svgItems = [
+//   <svg key="1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+//     <circle cx="50" cy="50" r="45" fill="#3b82f6" />
+//   </svg>,
+//   <svg key="2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+//     <rect x="10" y="10" width="80" height="80" fill="#10b981" />
+//   </svg>,
+//   <svg key="3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+//     <polygon points="50,10 90,90 10,90" fill="#f59e0b" />
+//   </svg>,
+//   <svg key="4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+//     <ellipse cx="50" cy="50" rx="45" ry="30" fill="#ef4444" />
+//   </svg>,
+//   <svg key="5" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+//     <path d="M10 10 H 90 V 90 L 50 50 Z" fill="#8b5cf6" />
+//   </svg>,
+// ];
 const svgItems = [
-  <svg key="1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="50" cy="50" r="45" fill="#3b82f6" />
-  </svg>,
-  <svg key="2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="10" width="80" height="80" fill="#10b981" />
-  </svg>,
-  <svg key="3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="50,10 90,90 10,90" fill="#f59e0b" />
-  </svg>,
-  <svg key="4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="50" cy="50" rx="45" ry="30" fill="#ef4444" />
-  </svg>,
-  <svg key="5" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 10 H 90 V 90 L 50 50 Z" fill="#8b5cf6" />
-  </svg>,
+  {
+    id: "1",
+    src: sv1,
+    alt: "",
+  },
+  {
+    id: "2",
+    src: sv2,
+    alt: "",
+  },
+  {
+    id: "3",
+    src: sv3,
+    alt: "",
+  },
+  {
+    id: "4",
+    src: sv4,
+    alt: "",
+  },
+  {
+    id: "5",
+    src: sv5,
+    alt: "",
+  },
 ];
-const companies = [{
-id: "",
-src: "",
-alt: ""
-},{
-id: "",
-src: "",
-alt: ""
-},{
-id: "",
-src: "",
-alt: ""
-},{
-id: "",
-src: "",
-alt: ""
-}] 
 const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -93,8 +108,10 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
           </p>
           <p className="text-2xl">Lorem ipsum dolor sit amet consectetur</p>
         </div>
-        <div className="hidden md:flex"> {companies.map((x)=>{return (<div key={x.id}><Image src={x.src} alt={x.alt} width={50} height={50}/> </div>)})} </div>
-        <div className="mx-auto mt-5 md:hiiden">
+        {/* <div className="hidden md:flex">
+          
+        </div> */}
+        <div className="mx-auto mt-20 w-full center ">
           <Carousel
             setApi={setApi}
             className="w-full max-w-3xl"
@@ -107,11 +124,15 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {svgItems.map((svg, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2">
+                <CarouselItem
+                  key={index}
+                  className="pl-2 md:pl-4 md:basis-1/4 basis-1/4"
+                >
                   <div className="p-1">
-                    <Card>
-                      <CardContent className="flex aspect-square items-center justify-center p-6">
-                        {svg}
+                    <Card className="bg-transparent border-none">
+                      <CardContent className="flex flex-col gap-5 aspect-square items-center justify-center p-6">
+                        <Image src={svg.src} alt="" width={50} />{" "}
+                        <h3 className="text-xl text-white">{svg.id}</h3>
                       </CardContent>
                     </Card>
                   </div>
