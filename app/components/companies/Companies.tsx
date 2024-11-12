@@ -86,11 +86,12 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
               alt="company logo"
             />
             <p className="text-white mt-3">{product.des}</p>
-            <button
-              className={`border-[1px] border-[${product.color}] text-white rounded-md p-2 mt-3`}
+            <a
+              href="/"
+              className={`transition-all mt-5 duration-500 ease-out text-white py-2 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-${product.color} font-bold text-sm  lg:block cursor-pointer hover:bg-main hover:scale-95 `}
             >
-              See More
-            </button>
+              Contact Us
+            </a>
           </div>
         ))}
       </div>
