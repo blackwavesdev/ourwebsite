@@ -40,27 +40,27 @@ const svgItems = [
   {
     id: "1",
     src: sv1,
-    alt: "",
+    desc: "Brand Strategies",
   },
   {
     id: "2",
     src: sv2,
-    alt: "",
+    desc: "Media Productions",
   },
   {
     id: "3",
     src: sv3,
-    alt: "",
+    desc: "Branding & Packaging",
   },
   {
     id: "4",
     src: sv4,
-    alt: "",
+    desc: "Digital Marketing",
   },
   {
     id: "5",
     src: sv5,
-    alt: "",
+    desc: "Coding & Developments",
   },
 ];
 const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
@@ -98,7 +98,7 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section ref={ref} className=" bg-black  h-[100dvh] snap-start">
       <div className="w-full md:w-[80%] m-auto text-center flex flex-col justify-center h-full">
-        <div className="w-full  md:w-4/5  flex  flex-col text-5xl justify-center text-white mx-auto text-center gap-4">
+        <div className="w-full  flex  flex-col text-5xl justify-center text-white mx-auto text-center gap-4">
           <h1 className="">
             <span className="text-blue-800 ">What</span> We Do ?
           </h1>
@@ -111,10 +111,10 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
         {/* <div className="hidden md:flex">
           
         </div> */}
-        <div className="mx-auto mt-20 w-full center ">
+        <div className="mx-auto mt-20 w-full center">
           <Carousel
             setApi={setApi}
-            className="w-full max-w-3xl"
+            className="w-full"
             opts={{
               align: "start",
               loop: true,
@@ -126,21 +126,21 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
               {svgItems.map((svg, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-2 md:pl-4 md:basis-1/4 basis-1/4"
+                  className="pl-2 md:pl-4 md:basis-1/4 basis-1/2"
                 >
                   <div className="p-1">
                     <Card className="bg-transparent border-none">
-                      <CardContent className="flex flex-col gap-5 aspect-square items-center justify-center p-6">
+                      <CardContent className="flex flex-col gap-5 aspect-square items-center justify-center p-0">
                         <Image src={svg.src} alt="" width={50} />{" "}
-                        <h3 className="text-xl text-white">{svg.id}</h3>
+                        <h3 className="text-sm text-white">{svg.desc}</h3>
                       </CardContent>
                     </Card>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            {/* <CarouselPrevious />
+            <CarouselNext /> */}
           </Carousel>
         </div>
       </div>
