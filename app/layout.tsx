@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import "./globals.css";
+import Fotter from "./components/Fotter";
 
 export const metadata: Metadata = {
   title: "Black Waves",
@@ -22,7 +23,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={` font-Poppins antialiased`}>{children}</body>
+      <body className={` font-Poppins antialiased`}>
+        {children}
+        <Fotter />
+      </body>
     </html>
   );
 }
