@@ -3,35 +3,36 @@ import axios from "axios";
 import React, { useState } from "react";
 const Fotter = () => {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  // const [message, setMessage] = useState("");
+  // const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    setMessage("");
-    setIsLoading(true);
+    // setMessage("");
+    // setIsLoading(true);
 
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      setMessage("Please enter a valid email.");
-      setIsLoading(false);
+      // setMessage("Please enter a valid email.");
+      // setIsLoading(false);
+      console.log("error");
+
       return;
     }
 
     try {
       const response = await axios.post("https:/", { email: email });
-      setMessage(response.data);
-      setEmail("");
+      // setMessage(response.data);
+      console.log(response.data);
+
+      // setEmail("");
     } catch (error) {
       console.log(error);
-
-      setMessage("Something went wrong. Please try again.");
-    } finally {
-      setIsLoading(false);
+      // setMessage("Something went wrong. Please try again.");
     }
   };
 
   return (
-    <section className="bg-black  h-[100dvh] flex flex-col w-full items-center">
+    <section className="bg-black  h-[100dvh] flex flex-col w-full justify-center items-center">
       <div className="flex flex-col gap-y-3 py-8 w-5/6  mx-auto ">
         <div className="flex mb-6  border-l  border-main p-3">
           {" "}
@@ -106,7 +107,7 @@ const Fotter = () => {
         >
           <input
             id="email"
-            value={email}
+            // value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="name@example.com"
@@ -115,11 +116,12 @@ const Fotter = () => {
           <button
             type="submit"
             className="p-2 bg-main rounded-md font-semibold hover:bg-white !duration-500"
-            disabled={isLoading}
+            // disabled={isLoading}
           >
-            {isLoading ? "Loading" : "SUBSCRIBE"}
+            {/* {isLoading ? "Loading" : "SUBSCRIBE"} */}
+            SUBSCRIBE
           </button>
-          {message && (
+          {/* {message && (
             <p
               className={`mt-4 text-center text-sm ${
                 message.includes("successfully")
@@ -129,7 +131,7 @@ const Fotter = () => {
             >
               {message}
             </p>
-          )}
+          )} */}
         </form>
         <p className="text-white text-sm mt-2">
           Get the scoop & stay in the loop! Sign up for email alerts to get
