@@ -1,5 +1,35 @@
-import React from "react";
+"use client";
+import axios from "axios";
+import React, { useState } from "react";
 const Fotter = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    setMessage("");
+    setIsLoading(true);
+
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      setMessage("Please enter a valid email.");
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const response = await axios.post("https:/", { email: email });
+      setMessage(response.data);
+      setEmail("");
+    } catch (error) {
+      console.log(error);
+
+      setMessage("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section className="bg-black  h-[100dvh] flex flex-col w-full items-center">
       <div className="flex flex-col gap-y-3 py-8 w-5/6  mx-auto ">
@@ -70,8 +100,14 @@ const Fotter = () => {
       </div>
       <div className="flex flex-col w-5/6 mx-auto">
         <h1 className="text-main mb-1  font-extrabold text-2xl">NEWSLETTER</h1>
-        <form className="flex gap-x-5 items-center mt-3">
+        <form
+          onSubmit={handleSubmit}
+          className="flex gap-x-5 items-center mt-3"
+        >
           <input
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="name@example.com"
             className="p-2 rounded-md min-w-24"
@@ -79,9 +115,21 @@ const Fotter = () => {
           <button
             type="submit"
             className="p-2 bg-main rounded-md font-semibold hover:bg-white !duration-500"
+            disabled={isLoading}
           >
-            SUBSCRIPE
+            {isLoading ? "Loading" : "SUBSCRIBE"}
           </button>
+          {message && (
+            <p
+              className={`mt-4 text-center text-sm ${
+                message.includes("successfully")
+                  ? "text-green-500"
+                  : "text-red-500"
+              }`}
+            >
+              {message}
+            </p>
+          )}
         </form>
         <p className="text-white text-sm mt-2">
           Get the scoop & stay in the loop! Sign up for email alerts to get
