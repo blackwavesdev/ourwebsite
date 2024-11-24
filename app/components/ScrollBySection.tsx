@@ -4,6 +4,7 @@ import Welcome from "./Welcome/Welcome";
 import MeetUs from "./MeetUs";
 import Hero from "./Hero";
 import WhatWeDo from "./WhatWeDo";
+import Companies from "./companies/Companies";
 
 const ScrollBySection: React.FC = () => {
   const sectionRefs = useRef<HTMLDivElement[]>([]);
@@ -81,6 +82,11 @@ const ScrollBySection: React.FC = () => {
       <WhatWeDo
         ref={(el) => {
           if (el) sectionRefs.current[3] = el;
+        }}
+      />
+      <Companies
+        ref={(el) => {
+          if (el) sectionRefs.current[4] = el;
         }}
       />
     </div>
