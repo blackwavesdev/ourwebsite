@@ -134,7 +134,7 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <nav
-        className={`lg:hidden fixed pb-32 left-0 w-full h-full transition-all  duration-200 ease-in-out bg-black text-center z-50 
+        className={`lg:hidden flex justify-center items-center fixed pb-32 left-0 w-full h-full transition-all  duration-200 ease-in-out bg-black text-center z-50 
                     ${
                       visible ? "opacity-100" : "opacity-0 pointer-events-none"
                     } 
@@ -149,7 +149,7 @@ const Nav = () => {
           {links.map((link, index) => (
             <li
               key={index}
-              className="mt-0 m-auto w-fit border-b-2 border-transparent hover:border-main pt-3 lg:mt-0 mb-16 text-3xl font-medium transition-all duration-500 ease-out text-white"
+              className="text-2xl font-medium mb-6 hover:text-main transition"
             >
               <a href={link.link}>{link.name}</a>
             </li>
