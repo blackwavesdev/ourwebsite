@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import Welcome from "./Welcome/Welcome";
 import MeetUs from "./MeetUs";
 import Hero from "./Hero";
-import Companies from "./companies/Companies";
 
 const ScrollBySection: React.FC = () => {
   const sectionRefs = useRef<HTMLDivElement[]>([]);
@@ -76,11 +75,6 @@ const ScrollBySection: React.FC = () => {
       <MeetUs
         ref={(el) => {
           if (el) sectionRefs.current[2] = el;
-        }}
-      />
-      <Companies
-        ref={(el) => {
-          if (el) sectionRefs.current[3] = el;
         }}
       />
     </div>
