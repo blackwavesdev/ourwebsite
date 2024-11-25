@@ -64,7 +64,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
       className={`overflow-y-hidden bg-black h-[100dvh] flex flex-col justify-center gap-5 snap-start text-white font-bold transition-all duration-700`}
     >
       <div
-        className={`image-company h-[287px] center transition-all duration-700 ${
+        className={`image-company md:h-[287px] center transition-all duration-700 ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
