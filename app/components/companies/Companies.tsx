@@ -11,6 +11,8 @@ import img from "../../../Public/01.png";
 const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   const [isInView, setIsInView] = useState(false);
   const localRef = useRef<HTMLDivElement | null>(null);
+  const hasAnimated = useRef(false); // Tracks if animation has already played
+
   useImperativeHandle(ref, () => localRef.current!);
   useEffect(() => {
     const element = localRef.current;
@@ -18,11 +20,11 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          // Add a 400ms delay before triggering the animation
-          setTimeout(() => setIsInView(true), 400);
-        } else {
-          setIsInView(false);
+        if (entry.isIntersecting && !hasAnimated.current) {
+          setTimeout(() => {
+            setIsInView(true);
+            hasAnimated.current = true; // Mark animation as played
+          }, 400);
         }
       },
       { threshold: 0.3 }
@@ -59,9 +61,13 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section
       ref={localRef}
-      className="overflow-y-hidden bg-black h-[100dvh] flex flex-col justify-center gap-5 snap-start text-white"
+      className={`overflow-y-hidden bg-black h-[100dvh] flex flex-col justify-center gap-5 snap-start text-white font-bold transition-all duration-700`}
     >
-      <div className="image-company h-[287px] center">
+      <div
+        className={`image-company h-[287px] center transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <h2
           className={`text-white font-extrabold text-center text-5xl md:text-7xl  mt-0 md:mt-8
           ${
@@ -83,7 +89,11 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
           </span>
         </h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 md:flex-row justify-center md:w-4/5 mx-auto mt-0 md:mt-10 gap-5">
+      <div
+        className={`grid grid-cols-2 md:grid-cols-4 md:flex-row justify-center md:w-4/5 mx-auto mt-0 md:mt-10 gap-5 transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         {company.map((product, index) => (
           <div
             className={`flex flex-col items-center ${
@@ -94,7 +104,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
             key={index}
           >
             <Image
-              className="w-36 md:w-64"
+              className="w-32 md:w-64"
               width={200}
               height={200}
               src={product.image}

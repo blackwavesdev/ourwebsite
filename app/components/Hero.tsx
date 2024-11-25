@@ -10,6 +10,8 @@ import logo from "../../Public/logo-bw.png";
 const Hero = forwardRef<HTMLDivElement>((_, ref) => {
   const [isInView, setIsInView] = useState(false);
   const localRef = useRef<HTMLDivElement | null>(null);
+  const hasAnimated = useRef(false); // Tracks if animation has already played
+
   useImperativeHandle(ref, () => localRef.current!);
   useEffect(() => {
     const element = localRef.current;
@@ -17,11 +19,11 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          // Add a 300ms delay before triggering the animation
-          setTimeout(() => setIsInView(true), 400);
-        } else {
-          setIsInView(false);
+        if (entry.isIntersecting && !hasAnimated.current) {
+          setTimeout(() => {
+            setIsInView(true);
+            hasAnimated.current = true; // Mark animation as played
+          }, 400);
         }
       },
       { threshold: 0.3 }
@@ -34,29 +36,27 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section
       ref={localRef}
-      className="overflow-x-hidden flex justify-center h-screen w-full snap-start "
+      className={`overflow-x-hidden flex justify-center h-screen w-full snap-start`}
     >
-      <div className="flex w-full h-full flex-col md:flex-row justify-center items-center ">
+      <div
+        className={`flex w-full h-full flex-col md:flex-row justify-center items-center transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <Image
           src={logo}
           alt="Hero Image"
           width={200}
           height={200}
-          className={`flex justify-center items-center ${
-            isInView
-              ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
-              : ""
-          }`}
+          className={`flex justify-center items-center 
+            
+          `}
         />
         <p
-          className={`text-white text-base md:text-lg text-center md:text-left lg:text-xl  text-pretty leading-relaxed p-4 md:p-6 ${
-            isInView
-              ? "motion-scale-in-[0.5] motion-translate-x-in-[66%] motion-translate-y-in-[-6%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
-              : "hidden"
-          }`}
+          className={`text-white text-base md:text-lg text-center md:text-left lg:text-xl  text-pretty leading-relaxed p-4 md:p-6 `}
         >
           Digital Marketing Agency, SEO Solutions <br /> Innovative Web
-          Devolpment{" "}
+          Development
         </p>
       </div>
     </section>

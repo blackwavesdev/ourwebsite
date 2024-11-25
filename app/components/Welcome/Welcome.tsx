@@ -10,6 +10,7 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
   const [isInView, setIsInView] = useState(false);
   // const [isAnimationDelayed, setIsAnimationDelayed] = useState(false);
   const localRef = useRef<HTMLDivElement | null>(null);
+  const hasAnimated = useRef(false); // Tracks if animation has already played
 
   useImperativeHandle(ref, () => localRef.current!);
 
@@ -19,11 +20,11 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          // Add a 300ms delay before triggering the animation
-          setTimeout(() => setIsInView(true), 400);
-        } else {
-          setIsInView(false);
+        if (entry.isIntersecting && !hasAnimated.current) {
+          setTimeout(() => {
+            setIsInView(true);
+            hasAnimated.current = true; // Mark animation as played
+          }, 400);
         }
       },
       { threshold: 0.3 }
@@ -38,11 +39,15 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
     <section
       id="welcome"
       ref={localRef}
-      className="overflow-x-hidden min-h-[100dvh] snap-start bg-black pt-10 gap-5 md:gap-12 flex flex-col justify-around text-white"
+      className={`overflow-x-hidden min-h-[100dvh] snap-start bg-black pt-10 gap-5 md:gap-12 flex flex-col justify-around font-bold text-white transition-all duration-700 `}
     >
-      <div className="center flex-col mt-28">
+      <div
+        className={`center flex-col mt-28 transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <h2
-          className={`font-extrabold font-Poppins ${
+          className={`font-extrabold text-[24px] md:text-[28px] font-Poppins ${
             isInView
               ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
               : "hidden"
@@ -52,33 +57,30 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
         </h2>
         <div className="flex items-end">
           <h1
-            className={`text-5xl font-extrabold font-Poppins ${
-              isInView
-                ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
-                : "hidden"
-            }`}
+            className={`text-5xl text-[37px] md:text-[70px] mb-2 font-extrabold font-Poppins`}
           >
             Black Waves
           </h1>
-          <span
-            className={`bg-main p-1 rounded-full mb-2 ${
-              isInView ? "" : "hidden"
-            }`}
-          ></span>
+          <span className={`bg-main p-1 rounded-full mb-2`}></span>
         </div>
-        <p
-          className={`text-pretty md:w-[45%] px-2 md:px-0 text-center ${
-            isInView
-              ? "motion-scale-in-[0.5] motion-translate-x-in-[66%] motion-translate-y-in-[-6%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate motion-ease-spring-bouncy"
-              : "hidden"
-          }`}
-        >
+        <p className={`md:w-[45%] px-4 md:px-0 text-center`}>
           Where advertising is a Main Course, not a Piece of Cake. We blend
           creativity, strategy, and innovation to serve you delectable results.
         </p>
       </div>
-      <div>
-        <video autoPlay muted playsInline loop controls={false}>
+      <div
+        className={`transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        <video
+          className="mb-52 md:mb-0"
+          autoPlay
+          muted
+          playsInline
+          loop
+          controls={false}
+        >
           <source
             src={`${process.env.PUBLIC_URL || ""}/pattern.mp4`}
             type="video/mp4"
