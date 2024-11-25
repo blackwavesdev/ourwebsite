@@ -9,6 +9,8 @@ import React, {
 const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
   const [isInView, setIsInView] = useState(false);
   const localRef = useRef<HTMLDivElement | null>(null);
+  const hasAnimated = useRef(false); // Tracks if animation has already played
+
   useImperativeHandle(ref, () => localRef.current!);
   useEffect(() => {
     const element = localRef.current;
@@ -16,11 +18,11 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          // Add a 400ms delay before triggering the animation
-          setTimeout(() => setIsInView(true), 400);
-        } else {
-          setIsInView(false);
+        if (entry.isIntersecting && !hasAnimated.current) {
+          setTimeout(() => {
+            setIsInView(true);
+            hasAnimated.current = true; // Mark animation as played
+          }, 400);
         }
       },
       { threshold: 0.3 }
@@ -35,22 +37,22 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
     <section
       id="meetus"
       ref={localRef}
-      className="overflow-y-hidden bg-transparent h-[100dvh] snap-start text-white"
+      className={`overflow-y-hidden bg-transparent h-[100dvh] snap-start text-white font-bold transition-all duration-700`}
     >
-      <div className="w-full md:w-[80%] m-auto text-center flex flex-col justify-center h-full">
-        <div className="center flex-col">
+      <div
+        className={`w-full md:w-[60%] m-auto text-center flex flex-col justify-center h-full transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        <div className="center gap-0  md:gap-5 flex-col md:flex-row">
           <span
-            className={`font-extrabold text-main text-5xl ${
-              isInView
-                ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
-                : "hidden"
-            }`}
+            className={`font-extrabold text-main md:text-[70px] text-[37px]`}
           >
-            Meet
+            About
           </span>
           <div className="flex items-end">
             <h1
-              className={`text-5xl font-extrabold ${
+              className={`md:text-[70px] text-[37px] font-extrabold ${
                 isInView
                   ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
                   : "hidden"
@@ -58,46 +60,20 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
             >
               Black Waves
             </h1>{" "}
-            <span
-              className={`bg-main p-1 rounded-full mb-2 ${
-                isInView ? "" : "hidden"
-              }`}
-            ></span>
+            <span className={`bg-main p-1 rounded-full mb-4 md:mb-6 `}></span>
           </div>
         </div>
-        <h2
-          className={`text-white ${
-            isInView
-              ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
-              : "hidden"
-          }`}
-        >
-          Your Vision Our Code
-        </h2>
-        <div className="mt-10 px-2">
-          <p
-            className={`text-white ${
-              isInView
-                ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
-                : "hidden"
-            }`}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-            voluptas, quas vel perferendis sed id suscipit fugiat distinctio
-            totam corrupti voluptatibus nulla dolore iste eum, rem adipisci enim
-            quidem! Adipisci ,Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit.
+        <h2 className={`text-white`}>Your Vision Our Code</h2>
+        <div className="mt-10 px-2 ">
+          <p className={`text-white font-bold`}>
+            Black Waves is a dynamic digital agency that empowers businesses to
+            thrive in the digital age. With a team of passionate and skilled
+            professionals, we deliver innovative solutions that drive results.
           </p>
-          <p
-            className={`mt-4 text-white ${
-              isInView
-                ? "motion-scale-in-[0.5] motion-translate-x-in-[66%] motion-translate-y-in-[-6%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
-                : "hidden"
-            }`}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-            voluptas, quas vel perferendis sed id suscipit fugiat distinctio
-            totam corrupti voluptatibus
+          <p className={`mt-4 text-white font-bold`}>
+            Our Mission is to help businesses achieve their full potential by
+            providing cutting-edge digital marketing and web development
+            services.
           </p>
         </div>
       </div>
