@@ -23,7 +23,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`font-Poppins antialiased`}>{children}</body>
+      <body className={`h-[100dvh] font-Poppins antialiased`}>{children}</body>
     </html>
   );
 }

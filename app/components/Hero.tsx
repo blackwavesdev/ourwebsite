@@ -36,7 +36,7 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section
       ref={localRef}
-      className={`overflow-x-hidden flex justify-center h-screen w-full snap-start`}
+      className={`overflow-x-hidden flex justify-center h-[100dvh] w-full snap-start`}
     >
       <div
         className={`flex w-full h-full flex-col md:flex-row justify-center items-center transition-all duration-700 ${
