@@ -42,7 +42,7 @@ const Fotter = () => {
                 href="https://wa.me/213133212321?text=Hello%20there!%20I%20have%20a%20question%20about%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-white text-main px-4 py-2 rounded-md hover:bg-main hover:text-white duration-300"
+                className="flex items-center justify-center gap-2 bg-transparent text-main px-4 py-2 rounded-md hover:bg-main hover:text-white duration-300"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
