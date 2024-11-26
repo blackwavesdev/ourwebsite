@@ -23,6 +23,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
             setIsInView(true);
             hasAnimated.current = true; // Mark animation as played
           }, 400);
+          observer.unobserve(element); // Stop observing after entering view
         }
       },
       { threshold: 0.3 }
@@ -64,7 +65,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         </div>
         <h2 className={`text-white`}>Your Vision Our Code</h2>
-        <div className="mt-10 px-2 ">
+        <div className="mt-10 px-4">
           <p className={`text-white font-bold`}>
             Black Waves is a dynamic digital agency that empowers businesses to
             thrive in the digital age. With a team of passionate and skilled

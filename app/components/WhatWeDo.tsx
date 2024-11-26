@@ -73,8 +73,11 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
-          setIsInView(true);
-          hasAnimated.current = true; // Mark animation as played
+          setTimeout(() => {
+            setIsInView(true);
+            hasAnimated.current = true; // Mark animation as played
+          }, 400);
+          observer.unobserve(element); // Stop observing after entering view
         }
       },
       { threshold: 0.3 }
@@ -88,6 +91,7 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section
       ref={localRef}
+      id="whatWeDo"
       className={`bg-black  h-[100dvh] snap-start font-bold transition-all duration-700`}
     >
       <div

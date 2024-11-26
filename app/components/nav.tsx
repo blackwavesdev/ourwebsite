@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from "react";
 import myLogo from "../assets/images/logo-bw.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Nav = () => {
   const links = [
     { name: "About us", link: "#welcome" },
-    { name: "Services", link: "/" },
+    { name: "Services", link: "#whatWeDo" },
     { name: "Pricing", link: "/" },
-    { name: "Blog", link: "/" },
+    { name: "Contact Us", link: "#cotactus" },
   ];
 
   const [visible, setMenu] = useState(false);
@@ -55,7 +56,8 @@ const Nav = () => {
         }
                 `}
       >
-        <div
+        <Link
+          href={"#home"}
           className={`logo transition-all duration-500 ease-in-out flex justify-start items-center cursor-pointer text-center ml-6 md:ml-0 p-0 `}
         >
           <Image
@@ -65,7 +67,7 @@ const Nav = () => {
             src={myLogo}
             alt="company's logo"
           />
-        </div>
+        </Link>
 
         {/* Navigations for larger screens */}
         <nav
@@ -92,7 +94,7 @@ const Nav = () => {
         {/* Contact Button */}
         <div className="contact text-center">
           <a
-            href="/"
+            href="#contactus"
             className={`transition-all duration-500 ease-out text-white py-2 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-main font-bold text-sm hidden lg:block cursor-pointer hover:bg-main hover:scale-95 ${
               lastScrollY ? "text-sm" : "text-lg"
             }`}
@@ -151,12 +153,14 @@ const Nav = () => {
               key={index}
               className="text-2xl font-medium mb-6 hover:text-main transition"
             >
-              <a href={link.link}>{link.name}</a>
+              <a onClick={() => setMenu(false)} href={link.link}>
+                {link.name}
+              </a>
             </li>
           ))}
           <li className="pt-3 mt-13">
             <a
-              href="/"
+              href="#contactus"
               className="transition-all duration-500 ease-in-out text-white py-3 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-main font-extrabold sm:text-2xl text-lg lg:block cursor-pointer hover:bg-main hover:scale-95 hover:px-4"
             >
               Contact Us
