@@ -24,6 +24,7 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
             setIsInView(true);
             hasAnimated.current = true; // Mark animation as played
           }, 400);
+          observer.unobserve(element); // Stop observing after entering view
         }
       },
       { threshold: 0.3 }
@@ -35,6 +36,7 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
   }, []);
   return (
     <section
+      id="home"
       ref={localRef}
       className={`overflow-x-hidden flex justify-center h-[100dvh] w-full snap-start`}
     >
