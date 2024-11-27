@@ -133,7 +133,7 @@ export default async function OurTeam() {
                 <a
                   href={member.socials.instagram}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer "
                   className=""
                 >
                   <svg
