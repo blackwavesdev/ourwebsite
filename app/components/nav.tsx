@@ -97,7 +97,7 @@ const Nav = () => {
           <a
             href="#contactus"
             onClick={(e) => handleSmoothScroll(e, "#contactus")}
-            className="transition-all duration-500 ease-out text-white py-2 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-main font-bold text-sm hidden lg:block cursor-pointer hover:bg-main hover:scale-95"
+            className="transition-all duration-500 ease-out text-white py-2 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-main font-bold text-sm hidden lg:block cursor-pointer hover:bg-main hover:text-black hover:scale-95"
           >
             Contact Us
           </a>
@@ -165,7 +165,7 @@ const Nav = () => {
                 handleSmoothScroll(e, "#contactus");
                 setMenu(false);
               }}
-              className="transition-all duration-500 ease-in-out text-white py-3 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-main font-extrabold sm:text-2xl text-lg lg:block cursor-pointer hover:bg-main hover:scale-95 hover:px-4"
+              className="transition-all duration-500 ease-in-out text-white py-3 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-main font-extrabold sm:text-2xl text-lg lg:block cursor-pointer hover:bg-main hover:text-black hover:scale-95 hover:px-4"
             >
               Contact Us
             </a>
