@@ -65,22 +65,22 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
     <footer
       id="contactus"
       ref={localRef}
-      className="bg-black md:h-[50dvh] snap-start text-white py-10 flex flex-col justify-end items-center"
+      className="bg-black md:h-[50dvh] snap-start text-white py-2 flex flex-col justify-end items-center"
     >
       <div
-        className={`md:flex md:flex-row w-11/12 mt-4 gap-6 ${
+        className={`md:flex md:flex-row w-11/12 mt-4 gap-2 ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="flex flex-col mb-3 gap-3">
-          <div className="flex mb-3 border-l border-main px-3">
+        <div className="flex flex-col  gap-1">
+          <div className="flex mb-1 border-l border-main px-3">
             <div className="flex flex-col gap-2">
               <h1 className="text-main text-2xl font-extrabold">Call us now</h1>
               <a
                 href="https://wa.me/01065065760?text=Hello%20there!%20I%20have%20a%20question%20about%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center flex-row justify-center gap-2 bg-transparent text-white px-10 py-2 rounded-md hover:bg-main e duration-300     transition-all ease-out  border-opacity-50  border-2 bg-black outline-1 outline-main border-main font-bold cursor-pointer hover:scale-95"
+                className="flex items-center flex-row justify-center gap-2 bg-transparent text-white px-10 py-2 rounded-md hover:bg-main hover:text-black duration-300     transition-all ease-out  border-opacity-50  border-2 bg-black outline-1 outline-main border-main font-bold cursor-pointer hover:scale-95"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               </a>
             </div>
           </div>
-          <div className="flex mb-3 border-l border-main px-3">
+          <div className="flex mb-1 border-l border-main px-3">
             {/* <div className="flex flex-col gap-2">
               <h1 className="text-main text-2xl font-extrabold">
                 COME VISIT US
@@ -109,8 +109,8 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               </p>
             </div> */}
           </div>
-          <div className="flex mb-6 border-l border-main px-3">
-            <div className="flex flex-col gap-6">
+          <div className="flex mb-3 border-l border-main px-3">
+            <div className="flex flex-col gap-2">
               <h1 className="text-main text-2xl font-extrabold">
                 SEND A MESSAGE
               </h1>
@@ -155,7 +155,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="name@example.com"
-              className="p-2 rounded-md min-w-24"
+              className="p-2 rounded-md min-w-24 text-black"
             />
             <button
               type="submit"

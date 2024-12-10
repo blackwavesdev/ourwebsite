@@ -1,70 +1,125 @@
+"use client";
 import Image from "next/image";
-import Me from "../../Public/me-modified.png";
-export default async function OurTeam() {
-  const teamMembers = [
-    {
-      name: "Luna Turner",
-      role: "FOUNDER",
-      image: Me,
-      socials: {
-        facebook: "https://www.facebook.com/luna",
-        linkedin: "https://www.linkedin.com/in/luna",
-        instagram: "https://www.instagram.com/luna",
-      },
+import Me from "../assets/images/logo-bw.png";
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
+
+const teamMembers = [
+  {
+    name: "Luna Turner",
+    role: "FOUNDER",
+    image: Me,
+    socials: {
+      facebook: "https://www.facebook.com/luna",
+      linkedin: "https://www.linkedin.com/in/luna",
+      instagram: "https://www.instagram.com/luna",
     },
-    {
-      name: "Bryant Hall",
-      role: "DEVELOPER",
-      image: Me,
-      socials: {
-        facebook: "https://www.facebook.com/bryant",
-        linkedin: "https://www.linkedin.com/in/bryant",
-        instagram: "https://www.instagram.com/bryant",
-      },
+  },
+  {
+    name: "Bryant Hall",
+    role: "DEVELOPER",
+    image: Me,
+    socials: {
+      facebook: "https://www.facebook.com/bryant",
+      linkedin: "https://www.linkedin.com/in/bryant",
+      instagram: "https://www.instagram.com/bryant",
     },
-    {
-      name: "Hope Watkins",
-      role: "DESIGNER",
-      image: Me,
-      socials: {
-        facebook: "https://www.facebook.com/hope",
-        linkedin: "https://www.linkedin.com/in/hope",
-        instagram: "https://www.instagram.com/hope",
-      },
+  },
+  {
+    name: "Hope Watkins",
+    role: "DESIGNER",
+    image: Me,
+    socials: {
+      facebook: "https://www.facebook.com/hope",
+      linkedin: "https://www.linkedin.com/in/hope",
+      instagram: "https://www.instagram.com/hope",
     },
-    {
-      name: "Alex Johnson",
-      role: "MARKETER",
-      image: Me,
-      socials: {
-        facebook: "https://www.facebook.com/alex",
-        linkedin: "https://www.linkedin.com/in/alex",
-        instagram: "https://www.instagram.com/alex",
-      },
+  },
+  {
+    name: "Alex Johnson",
+    role: "MARKETER",
+    image: Me,
+    socials: {
+      facebook: "https://www.facebook.com/alex",
+      linkedin: "https://www.linkedin.com/in/alex",
+      instagram: "https://www.instagram.com/alex",
     },
-  ];
+  },
+];
+const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
+  const [isInView, setIsInView] = useState(false);
+  const localRef = useRef<HTMLDivElement | null>(null);
+  const hasAnimated = useRef(false); // Tracks if animation has already played
+
+  useImperativeHandle(ref, () => localRef.current!);
+  useEffect(() => {
+    const element = localRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          setTimeout(() => {
+            setIsInView(true);
+            hasAnimated.current = true; // Mark animation as played
+          }, 400);
+          observer.unobserve(element); // Stop observing after entering view
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(element);
+
+    return () => observer.unobserve(element);
+  }, []);
+
   return (
-    <div className="bg-black text-white min-h-screen">
-      <section className="team-section text-center py-16">
-        <h2 className="text-5xl text-main font-bold mb-10">
+    <section
+      id="OurTeam"
+      ref={localRef}
+      className="overflow-y-hidden center bg-transparent h-[100dvh] snap-start text-white font-bold transition-all duration-700"
+    >
+      <div
+        className={` py-16 w-full md:w-[60%] m-auto text-center flex flex-col justify-center h-full transition-all duration-700  ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        <h2
+          className={`text-5xl text-main font-bold mb-10 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           {" "}
           Our <span className="text-white">Team</span>
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 px-3">
+        <div
+          className={`grid grid-cols-2 xl:grid-cols-4 gap-2 px-3 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="team-card bg-gray-950 p-6 rounded-lg shadow-lg text-center"
+              className="team-card bg-white p-6 rounded-lg shadow-lg text-center"
             >
               <Image
                 src={member.image}
                 alt={member.name}
                 width={96}
                 height={96}
-                className={`mx-auto rounded-full border-2 border-main mb-4`}
+                loading="lazy"
+                className={`mx-auto rounded-full border-2 bg-black border-black mb-4`}
               />
-              <h3 className="text-xl font-semibold">{member.name}</h3>
-              <p className="text-sm text-gray-400">{member.role}</p>
+              <h3 className="text-xl text-black font-semibold">
+                {member.name}
+              </h3>
+              <p className="text-sm text-black">{member.role}</p>
               <div className="flex justify-center mt-4 space-x-4 my-auto">
                 <a
                   href={member.socials.facebook}
@@ -78,14 +133,14 @@ export default async function OurTeam() {
                   >
                     <g
                       id="Page-1"
-                      fill="#0033ff"
+                      fill="#000000"
                       fillRule="evenodd"
                       stroke="none"
                       strokeWidth="1"
                     >
                       <g
                         id="Dribbble-Light-Preview"
-                        fill="#0033ff"
+                        fill="#000000"
                         transform="translate(-385 -7399)"
                       >
                         <g id="icons" transform="translate(56 160)">
@@ -117,7 +172,7 @@ export default async function OurTeam() {
                     >
                       <g
                         id="Dribbble-Light-Preview"
-                        fill="#0033ff"
+                        fill="#000000"
                         transform="translate(-180 -7479)"
                       >
                         <g id="icons" transform="translate(56 160)">
@@ -144,17 +199,17 @@ export default async function OurTeam() {
                     className="py-[0.1rem]"
                   >
                     <path
-                      fill="#0033ff"
+                      fill="#000000"
                       fillRule="evenodd"
                       d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8"
                       clipRule="evenodd"
                     ></path>
                     <path
-                      fill="#0033ff"
+                      fill="#000000"
                       d="M18 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
                     ></path>
                     <path
-                      fill="#0033ff"
+                      fill="#000000"
                       fillRule="evenodd"
                       d="M1.654 4.276C1 5.56 1 7.24 1 10.6v2.8c0 3.36 0 5.04.654 6.324a6 6 0 0 0 2.622 2.622C5.56 23 7.24 23 10.6 23h2.8c3.36 0 5.04 0 6.324-.654a6 6 0 0 0 2.622-2.622C23 18.44 23 16.76 23 13.4v-2.8c0-3.36 0-5.04-.654-6.324a6 6 0 0 0-2.622-2.622C18.44 1 16.76 1 13.4 1h-2.8c-3.36 0-5.04 0-6.324.654a6 6 0 0 0-2.622 2.622M13.4 3h-2.8c-1.713 0-2.878.002-3.778.075-.877.072-1.325.202-1.638.361a4 4 0 0 0-1.748 1.748c-.16.313-.29.761-.36 1.638C3.001 7.722 3 8.887 3 10.6v2.8c0 1.713.002 2.878.075 3.778.072.877.202 1.325.361 1.638a4 4 0 0 0 1.748 1.748c.313.16.761.29 1.638.36.9.074 2.065.076 3.778.076h2.8c1.713 0 2.878-.002 3.778-.075.877-.072 1.325-.202 1.638-.361a4 4 0 0 0 1.748-1.748c.16-.313.29-.761.36-1.638.074-.9.076-2.065.076-3.778v-2.8c0-1.713-.002-2.878-.075-3.778-.072-.877-.202-1.325-.361-1.638a4 4 0 0 0-1.748-1.748c-.313-.16-.761-.29-1.638-.36C16.278 3.001 15.113 3 13.4 3"
                       clipRule="evenodd"
@@ -165,7 +220,11 @@ export default async function OurTeam() {
             </div>
           ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
-}
+});
+
+OurTeam.displayName = "OurTeam";
+
+export default OurTeam;

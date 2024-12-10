@@ -6,6 +6,7 @@ import Hero from "./Hero";
 import WhatWeDo from "./WhatWeDo";
 import Companies from "./companies/Companies";
 import Footer from "./Footer";
+import OurTeam from "./OurTeam";
 
 const ScrollBySection: React.FC = () => {
   const sectionRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
@@ -101,14 +102,19 @@ const ScrollBySection: React.FC = () => {
           sectionRefs.current[3] = el;
         }}
       />
-      <Companies
+      <OurTeam
         ref={(el) => {
           sectionRefs.current[4] = el;
         }}
       />
-      <Footer
+      <Companies
         ref={(el) => {
           sectionRefs.current[5] = el;
+        }}
+      />
+      <Footer
+        ref={(el) => {
+          sectionRefs.current[6] = el;
         }}
       />
     </div>
