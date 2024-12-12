@@ -65,15 +65,15 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
     <footer
       id="contactus"
       ref={localRef}
-      className="bg-black md:h-[50dvh] snap-start text-white py-2 flex flex-col justify-end items-center"
+      className="bg-black md:h-[50dvh] h-screen justify-center snap-start text-white py-2 flex flex-col  items-center "
     >
       <div
-        className={`md:flex md:flex-row w-11/12 mt-4 gap-2 ${
+        className={`md:flex md:flex-row w-11/12 gap-2 space-y-4  ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="flex flex-col  gap-1">
-          <div className="flex mb-1 border-l border-main px-3">
+        <div className="flex flex-col  gap-1 space-y-4">
+          <div className="flex  border-l border-main px-3">
             <div className="flex flex-col gap-2">
               <h1 className="text-main text-2xl font-extrabold">Call us now</h1>
               <a
@@ -99,7 +99,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               </a>
             </div>
           </div>
-          <div className="flex mb-1 border-l border-main px-3">
+          <div className="flex  border-l border-main px-3">
             {/* <div className="flex flex-col gap-2">
               <h1 className="text-main text-2xl font-extrabold">
                 COME VISIT US
@@ -109,8 +109,8 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               </p>
             </div> */}
           </div>
-          <div className="flex mb-3 border-l border-main px-3">
-            <div className="flex flex-col gap-2">
+          <div className="flex border-l border-main px-3">
+            <div className="flex flex-col gap-2 space-y-4 ">
               <h1 className="text-main text-2xl font-extrabold">
                 SEND A MESSAGE
               </h1>
@@ -125,11 +125,11 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col mx-auto py-4 gap-y-1">
+        <div className="flex flex-col mx-auto py-4 gap-y-1 space-y-2">
           <h1 className="text-main mb-1 border-b border-main font-extrabold text-2xl">
             OTHER PAGES
           </h1>
-          <ul className="flex text-white text-sm font-extrabold mt-1 justify-between md:flex-col md:gap-y-4 md:text-lg">
+          <ul className="flex text-white text-sm font-extrabold  justify-between md:flex-col md:gap-y-4 md:text-lg">
             <li>
               <a href="#">Home</a>
             </li>
@@ -144,11 +144,11 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col mx-auto py-4">
-          <h1 className="text-main mb-1 font-extrabold text-2xl">NEWSLETTER</h1>
+        <div className="flex flex-col mx-auto py-4 space-y-4">
+          <h1 className="text-main  font-extrabold text-2xl">NEWSLETTER</h1>
           <form
             onSubmit={handleSubmit}
-            className="flex gap-x-2 items-center mt-2 w-full"
+            className="flex gap-x-2 items-center mt-2 w-full "
           >
             <input
               id="email"
@@ -165,15 +165,15 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             </button>
             <div></div>
           </form>
-          <p className="text-white text-sm mt-4">
+          <p className="text-white text-sm ">
             Get the scoop & stay in the loop! Sign up for email alerts to get
             exclusive offers and deals.
           </p>
-          <div className="flex mt-4 w-full justify-evenly"></div>
+          <div className="flex  w-full justify-evenly"></div>
         </div>
       </div>
       <div
-        className={`mt-4 flex flex-col items-center mx-auto pt-4 border-t-[0.05px] border-blue-700 w-full ${
+        className={`mt-4 flex flex-col items-center mx-auto pt-4 border-t-[0.05px] border-blue-700 w-full space-y-4 ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
