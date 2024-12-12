@@ -55,9 +55,8 @@ const Nav = () => {
     <header className="text-white relative tracking-wide z-50 box-border block w-full">
       {/* Main Header */}
       <div
-        className={`headContainer pt-2 md:pt-0 z-50 flex justify-between sm:justify-around box-border fixed bg-black w-full items-center lg:w-12/12 transition-all duration-500 ease-in-out ${
-          isHeaderVisible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`headContainer pt-2 md:pt-0 z-50 flex justify-between sm:justify-around box-border fixed bg-black w-full items-center lg:w-12/12 transition-all duration-500 ease-in-out ${isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+          }`}
       >
         <Link
           href="#home"
@@ -65,9 +64,8 @@ const Nav = () => {
           className="logo transition-all duration-500 ease-in-out flex justify-start items-center cursor-pointer text-center ml-6 md:ml-0 p-0"
         >
           <Image
-            className={`w-16 md:w-28 transition-all duration-500 ease-in-out ${
-              lastScrollY ? "lg:w-24" : "lg:w-20"
-            }`}
+            className={`w-16 md:w-28 transition-all duration-500 ease-in-out ${lastScrollY ? "lg:w-24" : "lg:w-20"
+              }`}
             src={myLogo}
             alt="company's logo"
           />
@@ -112,19 +110,16 @@ const Nav = () => {
           >
             <div className="relative w-full h-full flex flex-col justify-around items-center">
               <div
-                className={`bg-white h-0.5 w-full transition-transform duration-500 ${
-                  visible ? "translate-y-1.5 rotate-45" : ""
-                }`}
+                className={`bg-white h-0.5 w-full transition-transform duration-500 ${visible ? "translate-y-1.5 rotate-45" : ""
+                  }`}
               ></div>
               <div
-                className={`bg-white h-0.5 w-full transition-all duration-500 ${
-                  visible ? "opacity-0" : "opacity-100"
-                }`}
+                className={`bg-white h-0.5 w-full transition-all duration-500 ${visible ? "opacity-0" : "opacity-100"
+                  }`}
               ></div>
               <div
-                className={`bg-white h-0.5 w-full transition-transform duration-500 ${
-                  visible ? "-translate-y-1.5 -rotate-45" : ""
-                }`}
+                className={`bg-white h-0.5 w-full transition-transform duration-500 ${visible ? "-translate-y-1.5 -rotate-45" : ""
+                  }`}
               ></div>
             </div>
           </button>
@@ -133,16 +128,14 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <nav
-        className={`lg:hidden flex justify-center items-center fixed pb-32 left-0 w-full h-full transition-all duration-200 ease-in-out bg-black text-center z-50 ${
-          visible ? "opacity-100" : "opacity-0 pointer-events-none"
-        } ${!isHeaderVisible ? "h-[100dvh] top-0" : "top-24 "}`}
+        className={`lg:hidden flex justify-center items-center fixed pb-32 left-0 w-full h-full transition-all duration-200 ease-in-out bg-black text-center z-50 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"
+          } ${!isHeaderVisible ? "h-[100dvh] top-0" : "top-16 md:top-24 "}`}
       >
         <ul
-          className={`flex flex-col justify-center items-center transition-transform duration-500 ease-in-out ${
-            visible ? "translate-y-0" : "-translate-y-full"
-          } ${!isHeaderVisible ? "mt-16" : "mt-0"}`}
+          className={`flex flex-col justify-center items-center transition-transform duration-500 ease-in-out ${visible ? "translate-y-0" : "-translate-y-full"
+            } ${!isHeaderVisible ? "mt-16" : "mt-0"}`}
         >
-          {links.map((link, index) => (
+          {links.slice(0, 3).map((link, index) => (
             <li
               key={index}
               className="text-2xl font-medium mb-6 hover:text-main transition"
