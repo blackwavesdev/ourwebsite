@@ -7,39 +7,32 @@ import React, {
   useRef,
   useState,
 } from "react";
+
 const Footer = forwardRef<HTMLDivElement>((_, ref) => {
   const [email, setEmail] = useState("");
-  // const [message, setMessage] = useState("");
-  // const [isLoading, setIsLoading] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const localRef = useRef<HTMLDivElement | null>(null);
-  const hasAnimated = useRef(false); // Tracks if animation has already played
+  const hasAnimated = useRef(false);
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // setMessage("");
-    // setIsLoading(true);
 
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      // setMessage("Please enter a valid email.");
-      // setIsLoading(false);
-      console.log("error");
-
+      console.error("Please enter a valid email.");
       return;
     }
 
     try {
-      const response = await axios.post("https:/", { email: email });
-      // setMessage(response.data);
-      console.log(response.data);
-
-      // setEmail("");
+      const response = await axios.post("https:/", { email });
+      console.log("Response:", response.data);
+      setEmail("");
     } catch (error) {
-      console.log(error);
-      // setMessage("Something went wrong. Please try again.");
+      console.error("Error:", error);
     }
   };
+
   useImperativeHandle(ref, () => localRef.current!);
+
   useEffect(() => {
     const element = localRef.current;
     if (!element) return;
@@ -49,38 +42,38 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           setTimeout(() => {
             setIsInView(true);
-            hasAnimated.current = true; // Mark animation as played
+            hasAnimated.current = true;
           }, 400);
-          observer.unobserve(element); // Stop observing after entering view
+          observer.unobserve(element);
         }
       },
       { threshold: 0.3 }
     );
 
     observer.observe(element);
-
-    return () => observer.unobserve(element);
+    return () => observer.disconnect();
   }, []);
+
   return (
     <footer
       id="contactus"
       ref={localRef}
-      className="bg-black md:h-[50dvh] h-screen justify-center snap-start text-white py-2 flex flex-col  items-center "
+      className="bg-black snap-start text-white h-dvh flex items-end pt-20"
     >
       <div
-        className={`md:flex md:flex-row w-11/12 gap-2 space-y-4  ${
+        className={`  transition-all duration-700 flex flex-col justify-between h-full ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="flex flex-col  gap-1 space-y-4">
-          <div className="flex  border-l border-main px-3">
-            <div className="flex flex-col gap-2">
-              <h1 className="text-main text-2xl font-extrabold">Call us now</h1>
+        <div className="">
+          <div className="">
+            <div className="">
+              <h1 className="">Call us now</h1>
               <a
                 href="https://wa.me/01065065760?text=Hello%20there!%20I%20have%20a%20question%20about%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center flex-row justify-center gap-2 bg-transparent text-white px-10 py-2 rounded-md hover:bg-main hover:text-black duration-300     transition-all ease-out  border-opacity-50  border-2 bg-black outline-1 outline-main border-main font-bold cursor-pointer hover:scale-95"
+                className="flex items-center max-w-sm gap-2 bg-transparent text-white px-10 py-2 rounded-md hover:bg-main hover:text-black transition-all duration-300 border-2 border-main font-bold cursor-pointer hover:scale-95"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,37 +92,26 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               </a>
             </div>
           </div>
-          <div className="flex  border-l border-main px-3">
-            {/* <div className="flex flex-col gap-2">
-              <h1 className="text-main text-2xl font-extrabold">
-                COME VISIT US
-              </h1>
-              <p className="text-white font-bold">
-                Office Address: Portsaid Meetghamer, Al Dakahlia, Egypt
-              </p>
-            </div> */}
-          </div>
-          <div className="flex border-l border-main px-3">
-            <div className="flex flex-col gap-2 space-y-4 ">
-              <h1 className="text-main text-2xl font-extrabold">
-                SEND A MESSAGE
-              </h1>
-              <p className="text-white font-bold break-words max-w-sm">
-                <a
-                  href="mailto:blackwavesdev@outlook.com"
-                  className="text-white break-words break-all max-w-sm inline-block"
-                >
-                  mahmoudelhosary288@gmail.com
-                </a>
-              </p>
-            </div>
+          <div className="border-l border-main px-3">
+            <h1 className="text-main text-2xl font-extrabold">
+              SEND A MESSAGE
+            </h1>
+            <p className="text-white font-bold">
+              <a
+                href="mailto:mahmoudelhosary288@gmail.com"
+                className="break-words"
+              >
+                mahmoudelhosary288@gmail.com
+              </a>
+            </p>
           </div>
         </div>
-        <div className="flex flex-col mx-auto py-4 gap-y-1 space-y-2">
-          <h1 className="text-main mb-1 border-b border-main font-extrabold text-2xl">
+
+        <div className="flex flex-col mx-auto gap-2">
+          <h1 className="text-main mb-2 border-b border-main font-extrabold text-2xl">
             OTHER PAGES
           </h1>
-          <ul className="flex text-white text-sm font-extrabold  justify-between md:flex-col md:gap-y-4 md:text-lg">
+          <ul className="flex md:flex-col text-white text-lg font-extrabold gap-2">
             <li>
               <a href="#">Home</a>
             </li>
@@ -144,59 +126,55 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col mx-auto py-4 space-y-4">
-          <h1 className="text-main  font-extrabold text-2xl">NEWSLETTER</h1>
+
+        <div className="flex flex-col mx-auto space-y-4">
+          <h1 className="text-main font-extrabold text-2xl">NEWSLETTER</h1>
           <form
             onSubmit={handleSubmit}
-            className="flex gap-x-2 items-center mt-2 w-full "
+            className="flex gap-2 items-center w-full"
           >
             <input
               id="email"
               onChange={(e) => setEmail(e.target.value)}
+              value={email}
               type="email"
               placeholder="name@example.com"
-              className="p-2 rounded-md min-w-24 text-black"
+              className="p-2 rounded-md text-black min-w-24"
             />
             <button
               type="submit"
-              className="p-2 bg-main text-black rounded-md font-semibold hover:bg-white !duration-500"
+              className="p-2 bg-main text-black rounded-md font-semibold hover:bg-white transition duration-500"
             >
               SUBSCRIBE
             </button>
-            <div></div>
           </form>
-          <p className="text-white text-sm ">
+          <p className="text-white text-sm">
             Get the scoop & stay in the loop! Sign up for email alerts to get
             exclusive offers and deals.
           </p>
-          <div className="flex  w-full justify-evenly"></div>
         </div>
-      </div>
-      <div
-        className={`mt-4 flex flex-col items-center mx-auto pt-4 border-t-[0.05px] border-blue-700 w-full space-y-4 ${
-          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-      >
-        <p className="space-x-2 text-white text-center">
-          <a href="/policy" className="hover:underline text-main">
-            Privacy Policy
-          </a>
-          {/* <span>||</span>
-          <a href="/returnpolicy" className="hover:underline">
-            Return Policy
-          </a> */}
-        </p>
-        <p className="mt-2 text-center text-white">
-          © 2025
-          <span> </span>
-          <a className="text-two max-w-sm text-main" href="">
-            BW
-          </a>
-          , Inc. All rights reserved.
-        </p>
+        <div
+          className={`mt-4 flex flex-col items-center pt-4 border-t border-blue-700 w-full transition-all duration-700 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <p className="text-white text-center">
+            <a href="/policy" className="hover:underline text-main">
+              Privacy Policy
+            </a>
+          </p>
+          <p className="mt-2 text-white text-center">
+            © 2025{" "}
+            <a className="text-main" href="">
+              BW
+            </a>
+            , Inc. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
 });
+
 Footer.displayName = "Footer";
 export default Footer;
