@@ -83,30 +83,27 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
     <section
       id="OurTeam"
       ref={localRef}
-      className="overflow-y-hidden center bg-transparent h-[100dvh] snap-start text-white font-bold transition-all duration-700"
+      className="overflow-y-hidden bg-transparent center h-[100dvh] snap-start text-white font-bold transition-all duration-700"
     >
       <div
-        className={` py-16 w-full md:w-[60%] m-auto text-center flex flex-col justify-center h-full transition-all duration-700  ${
-          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={` w-full md:w-[60%]  m-auto mt-0 pt-0  text-center  justify-start h-full transition-all duration-700  ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-0"
+          }`}
       >
         <h2
-          className={`text-5xl text-main font-bold mb-10 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`text-5xl text-main font-bold  mt-0 pt-0${isInView ? "opacity-100 translate-y-24" : "opacity-0 translate-y-10"
+            }`}
         >
           {" "}
           Our <span className="text-white">Team</span>
         </h2>
         <div
-          className={`grid grid-cols-2 xl:grid-cols-4 gap-2 px-3 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`grid grid-cols-2 xl:grid-cols-4 gap-2 px-3 items-stretch ${isInView ? "opacity-100 translate-y-32" : "opacity-0 translate-y-10"
+            }`}
         >
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="team-card bg-white p-6 rounded-lg shadow-lg text-center"
+              className="team-card   bg-white py-4 rounded-lg shadow-lg text-center "
             >
               <Image
                 src={member.image}
@@ -119,7 +116,7 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
               <h3 className="text-xl text-black font-semibold">
                 {member.name}
               </h3>
-              <p className="text-sm text-black">{member.role}</p>
+              <p className="text-sm text-gray-400 font-semibold">{member.role}</p>
               <div className="flex justify-center mt-4 space-x-4 my-auto">
                 <a
                   href={member.socials.facebook}
