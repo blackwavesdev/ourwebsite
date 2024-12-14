@@ -61,7 +61,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
       className="bg-black snap-start text-white h-dvh flex flex-col items-end pt-20"
     >
       <div
-        className={`px-5 transition-all duration-700 flex flex-col md:flex-row md:items-center justify-around h-full w-full ${
+        className={`px-5 transition-all duration-700 flex flex-col md:flex-row md:items-center justify-around h-full w-full gap-5 ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
@@ -126,7 +126,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-2">
           <h1 className="text-main font-extrabold text-[1.5rem]">NEWSLETTER</h1>
           <form
             onSubmit={handleSubmit}
@@ -138,7 +138,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               value={email}
               type="email"
               placeholder="name@example.com"
-              className="p-2 rounded-md text-black min-w-24"
+              className="p-2 rounded-md text-black min-w-16 max-w-48"
             />
             <button
               type="submit"
