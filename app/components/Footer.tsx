@@ -58,14 +58,14 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
     <footer
       id="contactus"
       ref={localRef}
-      className="bg-black snap-start text-white h-dvh flex items-end pt-20"
+      className="bg-black snap-start text-white h-dvh flex flex-col items-end pt-20"
     >
       <div
-        className={`px-5  transition-all duration-700 flex flex-col justify-between h-full ${
+        className={`px-5 transition-all duration-700 flex flex-col md:flex-row md:items-center justify-around h-full w-full ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="flex flex-col gap-3 ">
+        <div className="flex flex-col gap-3">
           <div className="pl-3 border-l flex flex-col gap-2">
             {" "}
             <h1 className="text-[1.5rem] font-bold">Call us now</h1>
@@ -73,7 +73,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               href="https://wa.me/01065065760?text=Hello%20there!%20I%20have%20a%20question%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center w-1/2 gap-2 bg-transparent text-white px-2 py-2 rounded-md hover:bg-main hover:text-black transition-all duration-300 border-2 border-main font-bold cursor-pointer hover:scale-95"
+              className="flex items-center max-w-72 gap-2 bg-transparent text-white p-2 rounded-md hover:bg-main hover:text-black transition-all duration-300 border-2 border-main font-bold cursor-pointer hover:scale-95"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,11 +106,11 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         </div>
 
-        <div className="flex flex-col mx-auto gap-2">
-          <h1 className="text-main mb-2 border-b border-main font-extrabold text-2xl">
+        <div className="flex flex-col justify-between">
+          <h1 className="text-main mb-2 border-b border-main font-extrabold text-[1.5rem]">
             OTHER PAGES
           </h1>
-          <ul className="flex md:flex-col text-white text-lg font-extrabold gap-2">
+          <ul className="flex md:flex-col text-white flex-wrap font-bold gap-2">
             <li>
               <a href="#">Home</a>
             </li>
@@ -126,11 +126,11 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
           </ul>
         </div>
 
-        <div className="flex flex-col mx-auto">
-          <h1 className="text-main font-extrabold text-2xl">NEWSLETTER</h1>
+        <div className="flex flex-col gap-1">
+          <h1 className="text-main font-extrabold text-[1.5rem]">NEWSLETTER</h1>
           <form
             onSubmit={handleSubmit}
-            className="flex gap-2 items-center w-full"
+            className="flex gap-1 items-center max-w-fit"
           >
             <input
               id="email"
@@ -152,24 +152,24 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             exclusive offers and deals.
           </p>
         </div>
-        <div
-          className={`mt-4 flex flex-col items-center pt-4 border-t border-blue-700 w-full transition-all duration-700 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <p className="text-white text-center">
-            <a href="/policy" className="hover:underline text-main">
-              Privacy Policy
-            </a>
-          </p>
-          <p className="mt-2 text-white text-center">
-            © 2025{" "}
-            <a className="text-main" href="">
-              BW
-            </a>
-            , Inc. All rights reserved.
-          </p>
-        </div>
+      </div>
+      <div
+        className={`flex flex-col w-full p-2 pt-4 border-t border-blue-700 transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        <p className="text-white text-center">
+          <a href="/policy" className="hover:underline text-main">
+            Privacy Policy
+          </a>
+        </p>
+        <p className="mt-2 text-white text-center">
+          © 2025{" "}
+          <a className="text-main" href="">
+            BW
+          </a>
+          , Inc. All rights reserved.
+        </p>
       </div>
     </footer>
   );
