@@ -16,13 +16,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <title>Black Waves</title>
-      <meta name="description" content="We are web developers specialized in designing and developing websites. Learn about our services and products." />
-      <meta name="keywords" content="web development, website design, SEO, web applications, technical consulting" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="About Us - Web Developers" />
-      <meta name="twitter:description" content="We are web developers specialized in designing and developing websites. Learn about our services and products." />
-      <meta name="twitter:image" content="https://example.com/twitter-image.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
