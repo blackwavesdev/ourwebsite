@@ -107,7 +107,7 @@ const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {
           <h1>
             <span className="text-main">What</span> We Do?
           </h1>
-          <p className="text-lg">
+          <p className="text-lg font-normal">
             At Black Waves, we are more than just a digital agency. We are your
             partners in innovation, dedicated to transforming your online
             presence into a powerful tool for growth.

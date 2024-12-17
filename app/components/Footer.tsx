@@ -75,7 +75,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
         <div className="flex flex-col  gap-1">
           <div className="flex mb-1 border-l border-main px-3">
             <div className="flex flex-col gap-2">
-              <h1 className="text-main text-2xl font-extrabold">Call us now</h1>
+              <h1 className="text-main text-2xl">Call us now</h1>
               <a
                 href="https://wa.me/01065065760?text=Hello%20there!%20I%20have%20a%20question%20about%20your%20services."
                 target="_blank"
@@ -101,7 +101,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <div className="flex mb-1 border-l border-main px-3">
             {/* <div className="flex flex-col gap-2">
-              <h1 className="text-main text-2xl font-extrabold">
+              <h1 className="text-main text-2xl ">
                 COME VISIT US
               </h1>
               <p className="text-white font-bold">
@@ -111,9 +111,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <div className="flex mb-3 border-l border-main px-3">
             <div className="flex flex-col gap-2">
-              <h1 className="text-main text-2xl font-extrabold">
-                SEND A MESSAGE
-              </h1>
+              <h1 className="text-main text-2xl ">SEND A MESSAGE</h1>
               <p className="text-white font-bold break-words max-w-sm">
                 <a
                   href="mailto:blackwavesdev@outlook.com"
@@ -126,10 +124,10 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         </div>
         <div className="flex flex-col gap-y-1">
-          <h1 className="text-main mb-1 border-b border-main font-extrabold text-2xl">
+          <h1 className="text-main mb-1 border-b border-main  text-2xl">
             OTHER PAGES
           </h1>
-          <ul className="flex text-white text-sm font-extrabold mt-1 justify-between md:flex-col md:gap-y-4 md:text-lg">
+          <ul className="flex text-white text-sm  mt-1 justify-between md:flex-col md:gap-y-4 md:text-lg">
             <li>
               <a href="#">Home</a>
             </li>
@@ -145,7 +143,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
           </ul>
         </div>
         <div className="flex flex-col">
-          <h1 className="text-main mb-1 font-extrabold text-2xl">NEWSLETTER</h1>
+          <h1 className="text-main mb-1  text-2xl">NEWSLETTER</h1>
           <form
             onSubmit={handleSubmit}
             className="flex gap-x-2 items-center mt-2 w-full"

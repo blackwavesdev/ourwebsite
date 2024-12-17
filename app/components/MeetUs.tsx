@@ -46,14 +46,10 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
         }`}
       >
         <div className="center gap-0  md:gap-5 flex-col md:flex-row">
-          <span
-            className={`font-extrabold text-main md:text-[70px] text-[37px]`}
-          >
-            About
-          </span>
+          <span className={` text-main md:text-[70px] text-[37px]`}>About</span>
           <div className="flex items-end">
             <h1
-              className={`md:text-[70px] text-[37px] font-extrabold ${
+              className={`md:text-[70px] text-[37px]  ${
                 isInView
                   ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
                   : "hidden"
@@ -66,12 +62,12 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
         <h2 className={`text-white`}>Your Vision Our Code</h2>
         <div className="mt-10 px-4">
-          <p className={`text-white font-bold`}>
+          <p className={`text-white font-normal`}>
             Black Waves is a dynamic digital agency that empowers businesses to
             thrive in the digital age. With a team of passionate and skilled
             professionals, we deliver innovative solutions that drive results.
           </p>
-          <p className={`mt-4 text-white font-bold`}>
+          <p className={`mt-4 text-white font-normal`}>
             Our Mission is to help businesses achieve their full potential by
             providing cutting-edge digital marketing and web development
             services.
