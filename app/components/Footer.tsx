@@ -9,20 +9,20 @@ import React, {
 } from "react";
 const Footer = forwardRef<HTMLDivElement>((_, ref) => {
   const [email, setEmail] = useState("");
-  // const [message, setMessage] = useState("");
-  // const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const localRef = useRef<HTMLDivElement | null>(null);
   const hasAnimated = useRef(false); // Tracks if animation has already played
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    // setMessage("");
-    // setIsLoading(true);
+    setMessage("");
+    setIsLoading(true);
 
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      // setMessage("Please enter a valid email.");
-      // setIsLoading(false);
+      setMessage("Please enter a valid email.");
+      setIsLoading(false);
       console.log("error");
 
       return;
@@ -30,13 +30,13 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
 
     try {
       const response = await axios.post("https:/", { email: email });
-      // setMessage(response.data);
+      setMessage(response.data);
       console.log(response.data);
 
-      // setEmail("");
+      setEmail("");
     } catch (error) {
       console.log(error);
-      // setMessage("Something went wrong. Please try again.");
+      setMessage("Something went wrong. Please try again.");
     }
   };
   useImperativeHandle(ref, () => localRef.current!);
@@ -65,10 +65,10 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
     <footer
       id="contactus"
       ref={localRef}
-      className="bg-black md:h-[50dvh] snap-start text-white py-2 flex flex-col justify-end items-center"
+      className="bg-black h-dvh pt-20 snap-start text-white py-2 flex flex-col justify-end items-center md:gap-20"
     >
       <div
-        className={`md:flex md:flex-row w-11/12 mt-4 gap-2 ${
+        className={`md:flex md:flex-row justify-around md:items-start  flex flex-col w-11/12 mt-4 h-full md:h-fit   ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
@@ -125,7 +125,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col mx-auto py-4 gap-y-1">
+        <div className="flex flex-col gap-y-1">
           <h1 className="text-main mb-1 border-b border-main font-extrabold text-2xl">
             OTHER PAGES
           </h1>
@@ -144,7 +144,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col mx-auto py-4">
+        <div className="flex flex-col">
           <h1 className="text-main mb-1 font-extrabold text-2xl">NEWSLETTER</h1>
           <form
             onSubmit={handleSubmit}
@@ -160,11 +160,12 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             <button
               type="submit"
               className="p-2 bg-main text-black rounded-md font-semibold hover:bg-white !duration-500"
+              disabled={isLoading}
             >
               SUBSCRIBE
             </button>
-            <div></div>
           </form>
+          <div>{message}</div>
           <p className="text-white text-sm mt-4">
             Get the scoop & stay in the loop! Sign up for email alerts to get
             exclusive offers and deals.
@@ -173,7 +174,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
       </div>
       <div
-        className={`mt-4 flex flex-col items-center mx-auto pt-4 border-t-[0.05px] border-blue-700 w-full ${
+        className={`mt-4 flex flex-col items-center mx-auto pt-4 border-t-[0.05px] border-white w-full ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >

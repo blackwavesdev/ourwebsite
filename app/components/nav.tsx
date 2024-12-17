@@ -9,7 +9,7 @@ const Nav = () => {
     { name: "About us", link: "#welcome" },
     { name: "Services", link: "#whatWeDo" },
     { name: "Pricing", link: "/" },
-    { name: "Contact Us", link: "#contactus" },
+    // { name: "Contact Us", link: "#contactus" },
   ];
 
   const [visible, setMenu] = useState(false);
@@ -37,14 +37,14 @@ const Nav = () => {
     setLastScrollY(currentScrollY);
   };
 
-  const handleSmoothScroll = (e: React.MouseEvent, target: string) => {
-    e.preventDefault();
-    const section = document.querySelector(target);
+  // const handleSmoothScroll = (e: React.MouseEvent, target: string) => {
+  //   e.preventDefault();
+  //   const section = document.querySelector(target);
 
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -55,17 +55,19 @@ const Nav = () => {
     <header className="text-white relative tracking-wide z-50 box-border block w-full">
       {/* Main Header */}
       <div
-        className={`headContainer pt-2 md:pt-0 z-50 flex justify-between sm:justify-around box-border fixed bg-black w-full items-center lg:w-12/12 transition-all duration-500 ease-in-out ${isHeaderVisible ? "translate-y-0" : "-translate-y-full"
-          }`}
+        className={`headContainer pt-2 md:pt-0 z-50 flex justify-between sm:justify-around box-border fixed bg-black w-full items-center lg:w-12/12 transition-all duration-500 ease-in-out ${
+          isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
         <Link
           href="#home"
-          onClick={(e) => handleSmoothScroll(e, "#home")}
+          // onClick={(e) => handleSmoothScroll(e, "#home")}
           className="logo transition-all duration-500 ease-in-out flex justify-start items-center cursor-pointer text-center ml-6 md:ml-0 p-0"
         >
           <Image
-            className={`w-16 md:w-28 transition-all duration-500 ease-in-out ${lastScrollY ? "lg:w-24" : "lg:w-20"
-              }`}
+            className={`w-16 md:w-28 transition-all duration-500 ease-in-out ${
+              lastScrollY ? "lg:w-24" : "lg:w-20"
+            }`}
             src={myLogo}
             alt="company's logo"
           />
@@ -81,7 +83,7 @@ const Nav = () => {
               >
                 <a
                   href={link.link}
-                  onClick={(e) => handleSmoothScroll(e, link.link)}
+                  // onClick={(e) => handleSmoothScroll(e, link.link)}
                 >
                   {link.name}
                 </a>
@@ -94,7 +96,7 @@ const Nav = () => {
         <div className="contact text-center">
           <a
             href="#contactus"
-            onClick={(e) => handleSmoothScroll(e, "#contactus")}
+            // onClick={(e) => handleSmoothScroll(e, "#contactus")}
             className="transition-all duration-500 ease-out text-white py-2 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-main font-bold text-sm hidden lg:block cursor-pointer hover:bg-main hover:text-black hover:scale-95"
           >
             Contact Us
@@ -110,16 +112,19 @@ const Nav = () => {
           >
             <div className="relative w-full h-full flex flex-col justify-around items-center">
               <div
-                className={`bg-white h-0.5 w-full transition-transform duration-500 ${visible ? "translate-y-1.5 rotate-45" : ""
-                  }`}
+                className={`bg-white h-0.5 w-full transition-transform duration-500 ${
+                  visible ? "translate-y-1.5 rotate-45" : ""
+                }`}
               ></div>
               <div
-                className={`bg-white h-0.5 w-full transition-all duration-500 ${visible ? "opacity-0" : "opacity-100"
-                  }`}
+                className={`bg-white h-0.5 w-full transition-all duration-500 ${
+                  visible ? "opacity-0" : "opacity-100"
+                }`}
               ></div>
               <div
-                className={`bg-white h-0.5 w-full transition-transform duration-500 ${visible ? "-translate-y-1.5 -rotate-45" : ""
-                  }`}
+                className={`bg-white h-0.5 w-full transition-transform duration-500 ${
+                  visible ? "-translate-y-1.5 -rotate-45" : ""
+                }`}
               ></div>
             </div>
           </button>
@@ -128,12 +133,14 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <nav
-        className={`lg:hidden flex justify-center items-center fixed pb-32 left-0 w-full h-full transition-all duration-200 ease-in-out bg-black text-center z-50 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"
-          } ${!isHeaderVisible ? "h-[100dvh] top-0" : "top-16 md:top-24 "}`}
+        className={`lg:hidden flex justify-center items-center fixed pb-32 left-0 w-full h-full transition-all duration-200 ease-in-out bg-black text-center z-50 ${
+          visible ? "opacity-100" : "opacity-0 pointer-events-none"
+        } ${!isHeaderVisible ? "h-[100dvh] top-0" : "top-16 md:top-24 "}`}
       >
         <ul
-          className={`flex flex-col justify-center items-center transition-transform duration-500 ease-in-out ${visible ? "translate-y-0" : "-translate-y-full"
-            } ${!isHeaderVisible ? "mt-16" : "mt-0"}`}
+          className={`flex flex-col justify-center items-center transition-transform duration-500 ease-in-out ${
+            visible ? "translate-y-0" : "-translate-y-full"
+          } ${!isHeaderVisible ? "mt-16" : "mt-0"}`}
         >
           {links.slice(0, 3).map((link, index) => (
             <li
@@ -142,8 +149,7 @@ const Nav = () => {
             >
               <a
                 href={link.link}
-                onClick={(e) => {
-                  handleSmoothScroll(e, link.link);
+                onClick={() => {
                   setMenu(false);
                 }}
               >
@@ -154,8 +160,8 @@ const Nav = () => {
           <li className="pt-3 mt-13">
             <a
               href="#contactus"
-              onClick={(e) => {
-                handleSmoothScroll(e, "#contactus");
+              onClick={() => {
+                // handleSmoothScroll(e, "#contactus");
                 setMenu(false);
               }}
               className="transition-all duration-500 ease-in-out text-white py-3 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-main font-extrabold sm:text-2xl text-lg lg:block cursor-pointer hover:bg-main hover:text-black hover:scale-95 hover:px-4"
