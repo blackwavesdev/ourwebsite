@@ -48,7 +48,7 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
         }`}
       >
         <h2
-          className={`font-extrabold text-[24px] md:text-[28px] font-Poppins ${
+          className={`text-[24px] md:text-[28px] font-Poppins ${
             isInView
               ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
               : "hidden"
@@ -58,13 +58,13 @@ const Welcome = forwardRef<HTMLDivElement>((_, ref) => {
         </h2>
         <div className="flex items-end">
           <h1
-            className={`text-5xl text-[37px] md:text-[70px] mb-2 font-extrabold font-Poppins`}
+            className={`text-5xl text-[37px] md:text-[70px] mb-2 font-Poppins`}
           >
             Black Waves
           </h1>
           <span className={`bg-main p-1 rounded-full mb-2`}></span>
         </div>
-        <p className={`md:w-[45%] px-4 md:px-0 text-center`}>
+        <p className={`md:w-[45%] px-4 md:px-0 text-center font-normal`}>
           Where advertising is a Main Course, not a Piece of Cake. We blend
           creativity, strategy, and innovation to serve you delectable results.
         </p>
