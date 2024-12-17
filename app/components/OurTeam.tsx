@@ -113,7 +113,7 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
                 loading="lazy"
                 className={`mx-auto rounded  bg-black  mb-2`}
               />
-              <h3 className="text-md text-gray-white font-medium xl:text-lg">
+              <h3 className="text-sm md:text-base text-gray-white font-semibold xl:text-lg">
                 {member.name}
               </h3>
               <p className="text-sm text-gray-100  text-opacity-50 font-medium ">{member.role}</p>
