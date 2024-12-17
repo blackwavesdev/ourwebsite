@@ -11,8 +11,8 @@ import {
 
 const teamMembers = [
   {
-    name: "Luna Turner",
-    role: "FOUNDER",
+    name: "Omar Ghandour",
+    role: "Team Lead",
     image: Me,
     socials: {
       facebook: "https://www.facebook.com/luna",
@@ -21,8 +21,8 @@ const teamMembers = [
     },
   },
   {
-    name: "Bryant Hall",
-    role: "DEVELOPER",
+    name: "Ibrahim Salah",
+    role: "Frontend developer",
     image: Me,
     socials: {
       facebook: "https://www.facebook.com/bryant",
@@ -31,8 +31,8 @@ const teamMembers = [
     },
   },
   {
-    name: "Hope Watkins",
-    role: "DESIGNER",
+    name: "Mohammed Ghareeb",
+    role: "Backend developer",
     image: Me,
     socials: {
       facebook: "https://www.facebook.com/hope",
@@ -41,8 +41,8 @@ const teamMembers = [
     },
   },
   {
-    name: "Alex Johnson",
-    role: "MARKETER",
+    name: "Mohammed Elhossary",
+    role: "UI/UX",
     image: Me,
     socials: {
       facebook: "https://www.facebook.com/alex",
@@ -83,64 +83,62 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
     <section
       id="OurTeam"
       ref={localRef}
-      className="overflow-y-hidden center bg-transparent h-[100dvh] snap-start text-white font-bold transition-all duration-700"
+      className="overflow-y-hidden center bg-black h-[100dvh] snap-start pt-10 text-white font-bold transition-all duration-700"
     >
       <div
-        className={` py-16 w-full md:w-[60%] m-auto text-center flex flex-col justify-center h-full transition-all duration-700  ${
-          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={` w-full md:w-[85%] m-auto text-center flex flex-col  justify-center  h-full transition-all  duration-700  ${isInView ? "opacity-100 translate-y-0  md:translate-y-6 lg:translate-y-0" : "opacity-0 translate-y-10"
+          }`}
       >
         <h2
-          className={`text-5xl text-main font-bold mb-10 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`xl:text-7xl text-4xl sm:text-5xl md:text-6xl text-main font-bold mb-8 lg:mb-0 xl:mb-4  ${isInView ? "opacity-100 translate-y-0 xl:translate-y-[-90px]" : "opacity-0 translate-y-10"
+            }`}
         >
           {" "}
           Our <span className="text-white">Team</span>
         </h2>
         <div
-          className={`grid grid-cols-2 xl:grid-cols-4 gap-2 px-3 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`grid grid-cols-2 lg:grid-cols-4 gap-2 px-2 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="team-card bg-white p-6 rounded-lg shadow-lg text-center"
+              className="team-card bg-transparent  p-2 text-white  rounded-lg shadow-lg text-center"
             >
               <Image
                 src={member.image}
                 alt={member.name}
-                width={96}
-                height={96}
+                width={100}
+                height={100}
                 loading="lazy"
-                className={`mx-auto rounded-full border-2 bg-black border-black mb-4`}
+                className={`mx-auto rounded  bg-black  mb-2`}
               />
-              <h3 className="text-xl text-black font-semibold">
+              <h3 className="text-md text-gray-white font-medium xl:text-lg">
                 {member.name}
               </h3>
-              <p className="text-sm text-black">{member.role}</p>
-              <div className="flex justify-center mt-4 space-x-4 my-auto">
+              <p className="text-sm text-gray-100  text-opacity-50 font-medium ">{member.role}</p>
+              <div className="flex justify-center mt-4 space-x-5 my-aut">
                 <a
                   href={member.socials.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
+
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     viewBox="-5 0 20 20"
+
                   >
                     <g
                       id="Page-1"
-                      fill="#000000"
                       fillRule="evenodd"
                       stroke="none"
                       strokeWidth="1"
                     >
                       <g
                         id="Dribbble-Light-Preview"
-                        fill="#000000"
+                        fill="#BEBFBE"
                         transform="translate(-385 -7399)"
                       >
                         <g id="icons" transform="translate(56 160)">
@@ -172,7 +170,7 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
                     >
                       <g
                         id="Dribbble-Light-Preview"
-                        fill="#000000"
+                        fill="#C7C7C7"
                         transform="translate(-180 -7479)"
                       >
                         <g id="icons" transform="translate(56 160)">
@@ -199,17 +197,17 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
                     className="py-[0.1rem]"
                   >
                     <path
-                      fill="#000000"
+                      fill="#C7C7C7"
                       fillRule="evenodd"
                       d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8"
                       clipRule="evenodd"
                     ></path>
                     <path
-                      fill="#000000"
+                      fill="#C7C7C7"
                       d="M18 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
                     ></path>
                     <path
-                      fill="#000000"
+                      fill="#C7C7C7"
                       fillRule="evenodd"
                       d="M1.654 4.276C1 5.56 1 7.24 1 10.6v2.8c0 3.36 0 5.04.654 6.324a6 6 0 0 0 2.622 2.622C5.56 23 7.24 23 10.6 23h2.8c3.36 0 5.04 0 6.324-.654a6 6 0 0 0 2.622-2.622C23 18.44 23 16.76 23 13.4v-2.8c0-3.36 0-5.04-.654-6.324a6 6 0 0 0-2.622-2.622C18.44 1 16.76 1 13.4 1h-2.8c-3.36 0-5.04 0-6.324.654a6 6 0 0 0-2.622 2.622M13.4 3h-2.8c-1.713 0-2.878.002-3.778.075-.877.072-1.325.202-1.638.361a4 4 0 0 0-1.748 1.748c-.16.313-.29.761-.36 1.638C3.001 7.722 3 8.887 3 10.6v2.8c0 1.713.002 2.878.075 3.778.072.877.202 1.325.361 1.638a4 4 0 0 0 1.748 1.748c.313.16.761.29 1.638.36.9.074 2.065.076 3.778.076h2.8c1.713 0 2.878-.002 3.778-.075.877-.072 1.325-.202 1.638-.361a4 4 0 0 0 1.748-1.748c.16-.313.29-.761.36-1.638.074-.9.076-2.065.076-3.778v-2.8c0-1.713-.002-2.878-.075-3.778-.072-.877-.202-1.325-.361-1.638a4 4 0 0 0-1.748-1.748c-.313-.16-.761-.29-1.638-.36C16.278 3.001 15.113 3 13.4 3"
                       clipRule="evenodd"
