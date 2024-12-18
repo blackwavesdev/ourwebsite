@@ -83,18 +83,18 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
     <section
       id="OurTeam"
       ref={localRef}
-      className="overflow-y-hidden bg-transparent center h-[100dvh] snap-start text-white font-bold transition-all duration-700"
+      className="overflow-y-hidden bg-transparent  h-[100dvh] snap-start text-white font-bold transition-all duration-700"
     >
       <div
         className={` w-full md:w-[60%]  m-auto mt-0 pt-0  text-center  justify-start h-full transition-all duration-700  ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-0"
           }`}
       >
         <h2
-          className={`text-5xl text-main font-bold  mt-0 pt-0${isInView ? "opacity-100 translate-y-24" : "opacity-0 translate-y-10"
+          className={`text-sm md:text-5xl text-main font-bold  mt-0 pt-0${isInView ? "opacity-100 translate-y-24" : "opacity-0 translate-y-10"
             }`}
         >
           {" "}
-          Our <span className="text-white">Team</span>
+          {/* Our <span className="text-white">Team</span> */}
         </h2>
         <div
           className={`grid grid-cols-2 xl:grid-cols-4 gap-2 px-3 items-stretch ${isInView ? "opacity-100 translate-y-32" : "opacity-0 translate-y-10"
@@ -103,20 +103,20 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="team-card   bg-white py-4 rounded-lg shadow-lg text-center "
+              className="team-card   bg-white  py-3 md:py-4 rounded-lg shadow-lg text-center "
             >
               <Image
                 src={member.image}
                 alt={member.name}
-                width={96}
-                height={96}
+                // width={96}
+                // height={96}
                 loading="lazy"
-                className={`mx-auto rounded-full border-2 bg-black border-black mb-4`}
+                className={`mx-auto w-12 h-12 md:w-20 md:h-20 rounded-full border-2 bg-black border-black mb-4`}
               />
-              <h3 className="text-xl text-black font-semibold">
+              <h3 className="text-sm md:text-xl text-black font-semibold">
                 {member.name}
               </h3>
-              <p className="text-sm text-gray-400 font-semibold">{member.role}</p>
+              <p className="text-xs md:text-sm motion-duration-75 text-gray-400 font-semibold">{member.role}</p>
               <div className="flex justify-center mt-4 space-x-4 my-auto">
                 <a
                   href={member.socials.facebook}
@@ -125,8 +125,9 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
+                    // width="20"
                     viewBox="-5 0 20 20"
+                    className="w-3 md:w-5"
                   >
                     <g
                       id="Page-1"
@@ -157,8 +158,9 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
+                    // width="20"
                     viewBox="0 0 20 20"
+                    className="w-3 md:w-5"
                   >
                     <g
                       id="Page-1"
@@ -190,10 +192,10 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
+                    // width="20"
                     fill="none"
                     viewBox="0 0 24 24"
-                    className="py-[0.1rem]"
+                    className="py-[0.1rem] w-3 md:w-5"
                   >
                     <path
                       fill="#000000"
