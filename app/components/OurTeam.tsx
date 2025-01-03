@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
-import Me from "../assets/images/logo-bw.png";
+import omar from "../../Public/1.png";
+import hosary from "../../Public/2.png";
+import ibrahim from "../../Public/3.png";
+import ghareeb from "../../Public/4.png";
 import {
   forwardRef,
   useEffect,
@@ -12,28 +15,29 @@ import {
 const teamMembers = [
   {
     name: "Omar Ghandour",
-    role: "Team Lead",
-    image: Me,
+    role: "Lead FullStack Developer",
+    image: omar,
     socials: {
       facebook: "https://www.facebook.com/luna",
-      linkedin: "https://www.linkedin.com/in/luna",
-      instagram: "https://www.instagram.com/luna",
+      linkedin: "https://www.linkedin.com/in/omar-mousa-378b98261",
+      instagram: "https://www.instagram.com/omarrghandour",
     },
   },
   {
-    name: "Ibrahim Salah",
-    role: "Frontend developer",
-    image: Me,
+    name: "Mahmoud Elhossary",
+    role: "FrontEnd Developer & UI/UX",
+    image: hosary,
     socials: {
-      facebook: "https://www.facebook.com/bryant",
-      linkedin: "https://www.linkedin.com/in/bryant",
-      instagram: "https://www.instagram.com/bryant",
+      facebook: "https://www.facebook.com/alex",
+      linkedin: "https://www.linkedin.com/in/mahmoud-elhosary-776250313",
+      instagram: "https://www.instagram.com/mahmoudelhosary_",
     },
   },
+
   {
     name: "Mohammed Ghareeb",
-    role: "Backend developer",
-    image: Me,
+    role: "FrontEnd Developer",
+    image: ghareeb,
     socials: {
       facebook: "https://www.facebook.com/hope",
       linkedin: "https://www.linkedin.com/in/hope",
@@ -41,13 +45,13 @@ const teamMembers = [
     },
   },
   {
-    name: "Mohammed Elhossary",
-    role: "UI/UX",
-    image: Me,
+    name: "Ibrahim Salah",
+    role: "Frontend developer",
+    image: ibrahim,
     socials: {
-      facebook: "https://www.facebook.com/alex",
-      linkedin: "https://www.linkedin.com/in/alex",
-      instagram: "https://www.instagram.com/alex",
+      facebook: "https://www.facebook.com/bryant",
+      linkedin: "https://www.linkedin.com/in/bryant",
+      instagram: "https://www.instagram.com/ibrahem17_",
     },
   },
 ];
@@ -86,19 +90,26 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
       className="overflow-y-hidden center bg-black h-[100dvh] snap-start pt-10 text-white font-bold transition-all duration-700"
     >
       <div
-        className={` w-full md:w-[85%] m-auto text-center flex flex-col  justify-center  h-full transition-all  duration-700  ${isInView ? "opacity-100 translate-y-0  md:translate-y-6 lg:translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        className={` w-full md:w-[85%] m-auto text-center flex flex-col  justify-center  h-full transition-all  duration-700  ${
+          isInView
+            ? "opacity-100 translate-y-0  md:translate-y-6 lg:translate-y-0"
+            : "opacity-0 translate-y-10"
+        }`}
       >
         <h2
-          className={`xl:text-7xl text-4xl sm:text-5xl md:text-6xl text-main font-bold mb-8 lg:mb-0 xl:mb-4  ${isInView ? "opacity-100 translate-y-0 xl:translate-y-[-90px]" : "opacity-0 translate-y-10"
-            }`}
+          className={`xl:text-7xl text-4xl sm:text-5xl md:text-6xl text-main font-bold mb-8 lg:mb-0 xl:mb-4  ${
+            isInView
+              ? "opacity-100 translate-y-0 xl:translate-y-[-90px]"
+              : "opacity-0 translate-y-10"
+          }`}
         >
           {" "}
           Our <span className="text-white">Team</span>
         </h2>
         <div
-          className={`grid grid-cols-2 lg:grid-cols-4 gap-2 px-2 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+          className={`grid grid-cols-2 lg:grid-cols-4 gap-2 px-2 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
         >
           {teamMembers.map((member, index) => (
             <div
@@ -116,19 +127,19 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
               <h3 className="text-sm md:text-base text-gray-white font-semibold xl:text-lg">
                 {member.name}
               </h3>
-              <p className="text-sm text-gray-100  text-opacity-50 font-medium ">{member.role}</p>
+              <p className="text-sm text-gray-100  text-opacity-50 font-medium ">
+                {member.role}
+              </p>
               <div className="flex justify-center mt-4 space-x-5 my-aut">
                 <a
                   href={member.socials.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     viewBox="-5 0 20 20"
-
                   >
                     <g
                       id="Page-1"
