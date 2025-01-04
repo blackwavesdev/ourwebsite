@@ -18,17 +18,18 @@ const teamMembers = [
     role: "Lead FullStack Developer",
     image: omar,
     socials: {
-      facebook: "https://www.facebook.com/luna",
+      facebook: "https://www.facebook.com/share/183pVEiGMV/?mibextid=wwXIfr",
       linkedin: "https://www.linkedin.com/in/omar-mousa-378b98261",
       instagram: "https://www.instagram.com/omarrghandour",
     },
   },
   {
-    name: "Mahmoud Elhossary",
+    name: "Mahmoud Elhosary",
     role: "FrontEnd Developer & UI/UX",
     image: hosary,
     socials: {
-      facebook: "https://www.facebook.com/alex",
+      facebook:
+        "https://www.facebook.com/mahmoud.elhosary.79219?mibextid=ZbWKwL",
       linkedin: "https://www.linkedin.com/in/mahmoud-elhosary-776250313",
       instagram: "https://www.instagram.com/mahmoudelhosary_",
     },
@@ -39,9 +40,9 @@ const teamMembers = [
     role: "FrontEnd Developer",
     image: ghareeb,
     socials: {
-      facebook: "https://www.facebook.com/hope",
-      linkedin: "https://www.linkedin.com/in/hope",
-      instagram: "https://www.instagram.com/hope",
+      facebook: "https://m.facebook.com/Iam.mourinho.1088/",
+      linkedin: "https://www.linkedin.com/in/mohamed-ghareeb-0ab082334/",
+      instagram: "https://www.instagram.com/ghareeb.oo/",
     },
   },
   {
@@ -49,8 +50,9 @@ const teamMembers = [
     role: "Frontend developer",
     image: ibrahim,
     socials: {
-      facebook: "https://www.facebook.com/bryant",
-      linkedin: "https://www.linkedin.com/in/bryant",
+      facebook: "https://www.facebook.com/ibrahem.salah.140/",
+      linkedin:
+        "https://www.linkedin.com/in/ibrahim-salah-94417921b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       instagram: "https://www.instagram.com/ibrahem17_",
     },
   },
