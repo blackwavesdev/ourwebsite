@@ -7,7 +7,8 @@ import React, {
   useState,
 } from "react";
 import Image from "next/image";
-import img from "../../../Public/01.png";
+import Clocky from "../../../Public/01.png";
+import ParaMedia from "../../../Public/Paramedia.png";
 const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   const [isInView, setIsInView] = useState(false);
   const localRef = useRef<HTMLDivElement | null>(null);
@@ -38,25 +39,25 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
 
   const company = [
     {
-      image: img,
+      image: ParaMedia,
       des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
       color: "main",
     },
     {
-      image: img,
+      image: Clocky,
       des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
       color: "main",
     },
-    {
-      image: img,
-      des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
-      color: "main",
-    },
-    {
-      image: img,
-      des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
-      color: "main",
-    },
+    // {
+    //   image: img,
+    //   des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
+    //   color: "main",
+    // },
+    // {
+    //   image: img,
+    //   des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
+    //   color: "main",
+    // },
   ];
 
   return (
@@ -91,7 +92,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
         </h2>
       </div>
       <div
-        className={`grid grid-cols-2 md:grid-cols-4 md:flex-row justify-center md:w-4/5 mx-auto mt-0 md:mt-10 gap-5 transition-all duration-700 ${
+        className={`grid grid-cols-2 md:grid-cols-2 md:flex-row justify-center md:w-4/5 mx-auto mt-0 md:mt-10 gap-5 transition-all duration-700 ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
