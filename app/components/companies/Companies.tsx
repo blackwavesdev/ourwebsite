@@ -7,7 +7,7 @@ import React, {
   useState,
 } from "react";
 import Image from "next/image";
-import Clocky from "../../../Public/01.png";
+import Clocky from "../../../Public/clockywhite.jpg";
 import ParaMedia from "../../../Public/Paramedia.png";
 const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   const [isInView, setIsInView] = useState(false);
@@ -40,13 +40,15 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   const company = [
     {
       image: ParaMedia,
-      des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
+      des: "Branding And Digital Creative Agency",
       color: "main",
+      contact: "https://www.facebook.com/Pyramedia.eg",
     },
     {
       image: Clocky,
-      des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
+      des: "Jewelry & Watches Company",
       color: "main",
+      contact: "https://www.facebook.com/Clocky.Eg?mibextid=kFxxJD",
     },
     // {
     //   image: img,
@@ -63,7 +65,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section
       ref={localRef}
-      className={`overflow-y-hidden bg-black h-[100dvh] flex flex-col justify-center gap-5 snap-start text-white font-bold transition-all duration-700`}
+      className={`overflow-y-hidden h-[100dvh] flex bg-black  flex-col justify-center gap-24 snap-start text-white font-bold transition-all duration-700`}
     >
       <div
         className={`image-company md:h-[287px] center transition-all duration-700 ${
@@ -98,7 +100,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
       >
         {company.map((product, index) => (
           <div
-            className={`flex flex-col items-center ${
+            className={`flex flex-col justify-center items-center ${
               isInView
                 ? "motion-scale-in-[0.5] motion-translate-x-in-[-88%] motion-translate-y-in-[-9%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.00s] motion-duration-[0.61s]/translate motion-ease-spring-bouncy"
                 : "hidden"
@@ -116,7 +118,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
               {product.des}
             </p>
             <a
-              href="/"
+              href={product.contact}
               className={`transition-all mt-5 duration-500 ease-out text-white py-2 px-6 border-opacity-50 rounded-full border-2 bg-black outline-1 outline-main border-${product.color} font-normal text-sm  lg:block cursor-pointer hover:bg-main hover:scale-95 `}
             >
               Contact Us
