@@ -10,7 +10,8 @@ const Contactus = () => {
           What can we do for you?
         </h2>
         <p className=" mb-6 text-white">
-          Talk to us about your project and let's start building it together!
+          Talk to us about your project and {"let's"} start building it
+          together!
         </p>
         <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
           <div className="w-full md:w-1/2 p-6">
