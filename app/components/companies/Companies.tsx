@@ -53,9 +53,9 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
     },
     {
       image: oblesk,
-      des: "Jewelry & Watches Company",
+      des: "Kitchens | Closets | Tv Units",
       color: "main",
-      contact: "https://www.facebook.com/Clocky.Eg?mibextid=kFxxJD",
+      contact: "https://www.instagram.com/obelisk.closets",
     },
     // {
     //   image: img,
