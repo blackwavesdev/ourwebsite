@@ -117,7 +117,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
                   href="mailto:blackwavesdev@outlook.com"
                   className="text-white break-words break-all max-w-sm inline-block"
                 >
-                  mahmoudelhosary288@gmail.com
+                  blackwavesdev@outlook.com
                 </a>
               </p>
             </div>
@@ -129,7 +129,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
           </h1>
           <ul className="flex text-white text-sm  mt-1 justify-between md:flex-col md:gap-y-4 md:text-lg">
             <li>
-              <a href="#">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
               <a href="#">About Us</a>
