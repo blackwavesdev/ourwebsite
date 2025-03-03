@@ -132,14 +132,14 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">About Us</a>
+              <a href="#aboutus">About Us</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#">Categories</a>
-            </li>
-            <li>
-              <a href="#">Contact Us</a>
-            </li>
+            </li> */}
+            {/* <li>
+              <a href="/contactus">Contact Us</a>
+            </li> */}
           </ul>
         </div>
         <div className="flex flex-col">

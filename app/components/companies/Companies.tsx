@@ -72,6 +72,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section
       ref={localRef}
+      id="companies"
       className={`overflow-y-hidden h-[100dvh] flex bg-black  flex-col justify-center gap-0 md:gap-20 snap-start text-white font-bold transition-all duration-700`}
     >
       <div
@@ -88,7 +89,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
           }
           `}
         >
-          Companies
+          Partners
           <span
             className={` text-main text-5xl ${
               isInView

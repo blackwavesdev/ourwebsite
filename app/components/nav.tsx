@@ -6,9 +6,9 @@ import Link from "next/link";
 
 const Nav = () => {
   const links = [
-    { name: "About us", link: "#welcome" },
+    { name: "About us", link: "#aboutus" },
     { name: "Services", link: "#whatWeDo" },
-    { name: "Pricing", link: "/" },
+    { name: "Partners", link: "#companies" },
     // { name: "Contact Us", link: "#contactus" },
   ];
 
@@ -60,7 +60,7 @@ const Nav = () => {
         }`}
       >
         <Link
-          href="#home"
+          href="/"
           // onClick={(e) => handleSmoothScroll(e, "#home")}
           className="logo transition-all duration-500 ease-in-out flex justify-start items-center cursor-pointer text-center ml-6 md:ml-0 p-0"
         >

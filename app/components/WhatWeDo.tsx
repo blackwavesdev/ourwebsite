@@ -11,9 +11,9 @@ import {
 } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import sv1 from "../../Public/grid icons-14.png";
+import sv1 from "../../Public/cart-large-minimalistic-svgrepo-com.svg";
 import sv2 from "../../Public/grid icons-15.png";
-import sv3 from "../../Public/grid icons-16.png";
+import sv3 from "../../Public/ux-basic-app-6-svgrepo-com.svg";
 import sv4 from "../../Public/grid icons-17.png";
 import sv5 from "../../Public/grid icons-18.png";
 import {
@@ -24,11 +24,11 @@ import {
 } from "@/components/ui/carousel";
 
 const svgItems = [
-  { id: "1", src: sv1, desc: "Brand Strategies" },
-  { id: "2", src: sv2, desc: "Media Productions" },
-  { id: "3", src: sv3, desc: "Branding & Packaging" },
-  { id: "4", src: sv4, desc: "Digital Marketing" },
-  { id: "5", src: sv5, desc: "Coding & Developments" },
+  { id: "1", src: sv1, desc: "E-Commerce Solutions" },
+  // { id: "2", src: sv2, desc: "Media Productions" },
+  { id: "2", src: sv3, desc: "UI/UX Design" },
+  { id: "3", src: sv4, desc: "Digital Marketing Solutions" },
+  { id: "4", src: sv5, desc: "Coding & Developments" },
 ];
 
 const WhatWeDo = forwardRef<HTMLDivElement>((_, ref) => {

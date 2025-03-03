@@ -36,7 +36,7 @@ const MeetUs = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <section
-      id="meetus"
+      id="aboutus"
       ref={localRef}
       className={`overflow-y-hidden bg-transparent h-[100dvh] snap-start text-white font-bold transition-all duration-700`}
     >
