@@ -77,7 +77,7 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
             <div className="flex flex-col gap-2">
               <h1 className="text-main text-2xl">Call us now</h1>
               <a
-                href="https://wa.me/01065065760?text=Hello%20there!%20I%20have%20a%20question%20about%20your%20services."
+                href="https://wa.me/01055800875?text=Hello%20there!%20I%20have%20a%20question%20about%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center flex-row justify-center gap-2 bg-transparent text-white px-10 py-2 rounded-md hover:bg-main hover:text-black duration-300     transition-all ease-out  border-opacity-50  border-2 bg-black outline-1 outline-main border-main font-bold cursor-pointer hover:scale-95"
