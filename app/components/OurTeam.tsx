@@ -47,7 +47,7 @@ const teamMembers = [
   },
   {
     name: "Ibrahim Salah",
-    role: "FrontEnd developer",
+    role: "FrontEnd Developer",
     image: ibrahim,
     socials: {
       facebook: "https://www.facebook.com/ibrahem.salah.140/",
