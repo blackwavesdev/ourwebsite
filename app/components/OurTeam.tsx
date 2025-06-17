@@ -87,7 +87,7 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <section
-      id="OurTeam"
+      id="ourteam"
       ref={localRef}
       className="overflow-y-hidden center bg-black h-[100dvh] snap-start pt-10 text-white font-bold transition-all duration-700"
     >
