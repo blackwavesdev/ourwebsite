@@ -114,10 +114,10 @@ const Footer = forwardRef<HTMLDivElement>((_, ref) => {
               <h1 className="text-main text-2xl ">SEND A MESSAGE</h1>
               <p className="text-white font-bold break-words max-w-sm">
                 <a
-                  href="mailto:blackwavesdev@outlook.com"
+                  href="mailto:support@blackwaveseg.com"
                   className="text-white break-words break-all max-w-sm inline-block"
                 >
-                  blackwavesdev@outlook.com
+                  support@blackwaveseg.com
                 </a>
               </p>
             </div>
