@@ -3,7 +3,7 @@ import Image from "next/image";
 import omar from "../../Public/1.png";
 import hosary from "../../Public/2.png";
 import ibrahim from "../../Public/3.png";
-import ghareeb from "../../Public/4.png";
+// import ghareeb from "../../Public/4.png";
 import {
   forwardRef,
   useEffect,
@@ -35,16 +35,16 @@ const teamMembers = [
     },
   },
 
-  {
-    name: "Mohammed Ghareeb",
-    role: "FrontEnd Developer",
-    image: ghareeb,
-    socials: {
-      facebook: "https://m.facebook.com/Iam.mourinho.1088/",
-      linkedin: "https://www.linkedin.com/in/mohamed-ghareeb-0ab082334/",
-      instagram: "https://www.instagram.com/ghareeb.oo/",
-    },
-  },
+  // {
+  //   name: "Mohammed Ghareeb",
+  //   role: "FrontEnd Developer",
+  //   image: ghareeb,
+  //   socials: {
+  //     facebook: "https://m.facebook.com/Iam.mourinho.1088/",
+  //     linkedin: "https://www.linkedin.com/in/mohamed-ghareeb-0ab082334/",
+  //     instagram: "https://www.instagram.com/ghareeb.oo/",
+  //   },
+  // },
   {
     name: "Ibrahim Salah",
     role: "FrontEnd Developer",
@@ -99,7 +99,7 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
         }`}
       >
         <h2
-          className={`xl:text-7xl text-4xl sm:text-5xl md:text-6xl text-main font-bold mb-8 lg:mb-0 xl:mb-4  ${
+          className={`xl:text-7xl text-4xl sm:text-5xl md:text-6xl text-main font-bold mb-10 xl:mb-4  ${
             isInView
               ? "opacity-100 translate-y-0 xl:translate-y-[-90px]"
               : "opacity-0 translate-y-10"
@@ -109,7 +109,7 @@ const OurTeam = forwardRef<HTMLDivElement>((_, ref) => {
           Our <span className="text-white">Team</span>
         </h2>
         <div
-          className={`grid grid-cols-2 lg:grid-cols-4 gap-2 px-2 ${
+          className={`grid grid-cols-2 lg:grid-cols-3 gap-2 px-2 ${
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
