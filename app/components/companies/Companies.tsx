@@ -10,6 +10,7 @@ import Image from "next/image";
 import Clocky from "../../../Public/clocky-logo-1.png";
 import ParaMedia from "../../../Public/pyramedia-logo-icon-white.png";
 import oblesk from "../../../Public/oblyisk-111.png";
+import qwareer from "../../../Public/qwareer.png";
 const Companies = forwardRef<HTMLDivElement>((_, ref) => {
   const [isInView, setIsInView] = useState(false);
   const localRef = useRef<HTMLDivElement | null>(null);
@@ -57,6 +58,12 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
       color: "main",
       contact: "https://www.instagram.com/obelisk.closets",
     },
+    {
+      image: qwareer,
+      des: "Luxury Cosmetics & Accessories Collection",
+      color: "main",
+      contact: "https://www.facebook.com/share/14GdxSJuWtt/?mibextid=wwXIfr",
+    },
     // {
     //   image: img,
     //   des: "Meet TheBAKERS Studios, where we seamlessly blend the finest ingredients of production expertise and post-production magic. From crafting captivating concepts passing by detailed storyboarding to presenting visual delights, we layer each frame with editing finesse and color richness to create a masterpiece that brings the taste to life. Want a ...",
@@ -102,7 +109,7 @@ const Companies = forwardRef<HTMLDivElement>((_, ref) => {
         </h2>
       </div>
       <div
-        className={`grid grid-cols-2 md:grid-cols-3 md:flex-row justify-center md:w-4/5 mx-auto mt-0 md:mt-10 gap-5 transition-all duration-700 ${
+        className={`grid grid-cols-2 md:grid-cols-4 md:flex-row justify-center md:w-4/5 mx-auto mt-0 md:mt-10 gap-5 transition-all duration-700 ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
